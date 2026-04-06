@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { Route, Routes, NavLink } from "react-router-dom"
+
+import Header from './components/Header/Header'
+import Button from './components/Button/Button'
+import Input from './components/Input/Input'
+import Main from './pages/Main/Main'
+
 
 function App() {
+  const [count, setCount] = useState(0)
+  const handleSetCount = () => {
+    setCount(count + 1)
+  }
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div className='container'>
+
+        <Header />
+
+        <main className='main'>
+          <Routes>
+            <Route path="/" element={ <Main /> } />
+            <Route path="/calculator" element={ <Input /> } />
+            <Route path="/about" element={<Button title="рассчитать" styles="error" status="error" />} />
+          </Routes>
+        </main>
+
+      </div>
+    </>
+    
+
+
+    
+  )
 }
 
-export default App;
+export default App

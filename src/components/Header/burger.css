@@ -1,0 +1,60 @@
+@media (max-width: 1000px) {
+  .menu {
+    position: fixed;
+    z-index: 10006 !important;
+    display: flex;
+    top: 0;
+    height: 100%;
+    left: -100%; /* Скрыто слева */
+    background-color: #9AE6BE;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 2rem;
+    padding-left: 2rem;
+  }
+  .menu.active .header__leaf {
+    z-index: 0 !important;
+  }
+  .burger {
+    cursor: pointer !important;
+    z-index: 10005 !important;
+    color: #FAFAFA !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 50px !important;
+    /* margin-right: 2rem !important; */
+  }
+
+}
+
+.menu.active {
+  left: 0%; /* Появление */
+}
+
+.burger {
+  display: none;
+}
+
+.line {
+  width: 80%;
+  height: 5px;
+  color: #FAFAFA;
+  border-radius: 5px;
+  background-color: #FAFAFA;
+  margin: 4px;
+  transition: 0.3s;
+}
+
+/* Анимация превращения в крестик */
+.burger.open .line:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+.burger.open .line:nth-child(2) {
+  opacity: 0; /* Средняя линия исчезает */
+}
+.burger.open .line:nth-child(3) {
+  transform: rotate(-45deg) translate(10px, -10px);
+}
