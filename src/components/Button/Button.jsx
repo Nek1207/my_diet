@@ -1,10 +1,10 @@
 import React from "react"
 
 
-const Button = ( { title, styles, status } ) => {
+const Button = ( { title, styles, status, specialStyles } ) => {
   const buttonStatus = status
   return (
-    <button className={`button button--${styles}`}>{title}</button>
+    <button className={`button button--${styles} ${specialStyles}`}>{title}</button>
   )
 }
 

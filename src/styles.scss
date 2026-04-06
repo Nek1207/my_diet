@@ -19,63 +19,46 @@
     $darkcarrot: #B85018;
     $danger: #FF595E;
 
-
-    // $numbers: 82px;
-    // $heading1: 64px;
-    // $heading2: 56px;
-    // $subheading: 40px;
-    // $footer: 30px;
-    // $header: 24px;
-    // $header2: 14px;
-    // $button: 24px;
-
-    // $desc1: 36px;
-    // $desc2: 30px;
-    // $input: 20px;
-    // $desc3: 20px;
-    // $li: 16px;
-
-    // $br1: 50px;
-    // $br2: 25px;
-    // $br3: 15px;
-    
-    $numbers: clamp(30px, 10vw, 82px);
+    $numbers: clamp(30px, 10vw, 150px);
     $heading1: clamp(24px, 5vw, 64px);
-    $heading2: clamp(20px, 4vw, 56px);
+    $heading2: clamp(16px, 3vw, 56px);
     $subheading: clamp(14px, 3vw, 40px);
-    $footer: clamp(12px, 5vw, 30px);
+    $footer: clamp(10px, 3vw, 30px);
+    $footer2: clamp(8px, 2vw, 28px);
     $header: clamp(12px, 7vw, 24px);
     $header2: clamp(8px, 7vw, 16px);
-    $button: clamp(10px, 5vw, 24px);
+    $button: clamp(10px, 3vw, 24px);
 
-    $desc1: clamp(14px, 5vw, 36px);
-    $desc2: clamp(10px, 5vw, 30px);
-    $input: clamp(8px, 5vw, 20px);
-    $desc3: clamp(8px, 5vw, 20px);
-    $li: clamp(6px, 5vw, 16px);
+    $desc1: clamp(14px, 2.5vw, 36px);
+    $desc2: clamp(10px, 2vw, 30px);
+    $input: clamp(8px, 3vw, 20px);
+    $desc3: clamp(8px, 1vw, 20px);
+    $li: clamp(6px, 0.5vw, 16px);
 
-    $br1: 50px;
-    $br2: 25px;
-    $br3: 15px;
+    $br1: clamp(10px, 5vw, 50px);
+    $br2: clamp(10px, 4vw, 25px);
+    $br3: clamp(5px, 3vw, 15px);
 
 
 
 // классы модификации
 
-.c-white { color: $white; }
-.c-black { color: $black; }
-.c-gray { color: $gray; }
-.c-lightgray { color: $lightgray; }
-.c-green { color: $green; }
-.c-darkgreen { color: $darkgreen; }
-.c-lightgreen { color: $lightgreen; }
-.c-lightergreen { color: $lightergreen; }
-.c-proteins { color: $proteins; }
-.c-fats { color: $fats; }
-.c-carbs { color: $carbs; }
-.c-carrot { color: $carrot; }
-.c-darkcarrot { color: $darkcarrot; }
-.c-danger { color: $danger; }
+.c-white { color: $white !important; }
+.c-black { color: $black !important; }
+.c-gray { color: $gray !important; }
+.c-lightgray { color: $lightgray !important; }
+.c-green { color: $green !important; }
+.c-darkgreen { color: $darkgreen !important; }
+.c-lightgreen { color: $lightgreen !important; }
+.c-lightergreen { color: $lightergreen !important; }
+.c-proteins { color: $proteins !important; }
+.c-fats { color: $fats !important; }
+.c-carbs { color: $carbs !important; }
+.c-carrot { color: $carrot !important; }
+.c-darkcarrot { color: $darkcarrot !important; }
+.c-danger { color: $danger !important; }
+
+.bg { display: block; width: 100%; border-radius: $br2; padding: .5rem 1rem; }
 
 .bg-white { background-color: $white; }
 .bg-black { background-color: $black; }
@@ -176,6 +159,49 @@
 .r315 { rotate: 315deg; }
 .r330 { rotate: 330deg; }
 .r345 { rotate: 345deg; }
+
+.smoothscrolling.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s ease-in-out;
+}
+
+.smoothscrolling.hidden {
+  opacity: 0;
+  transform: translateY(3rem);
+  transition: all 0.5s ease-in-out;
+}
+
+
+
+
+
+.smoothscrolling-l {
+  transition: all 4s сubic-bezier(0.68, -0.55, 0.265, 1.55);
+  overflow-x: visible; /* важно */
+}
+.smoothscrolling-l.hidden {
+  opacity: 0;
+  margin-left: -100%;
+}
+.smoothscrolling-l.visible {
+  opacity: 1;
+  margin-left: 0;
+}
+
+
+.smoothscrolling-r {
+  transition: all 4s сubic-bezier(0.68, -0.55, 0.265, 1.55);
+  overflow-x: visible; /* важно */
+}
+.smoothscrolling-r.hidden {
+  opacity: 0;
+  margin-right: -100%;
+}
+.smoothscrolling-r.visible {
+  opacity: 1;
+  margin-right: 0;
+}
 
 @mixin flex($fd, $jc, $ai, $fw, $g) {
   display: flex;
@@ -324,7 +350,7 @@ section {
   z-index: 1000;
   position: relative;
   @include height(200px);
-  @include width(80vw);
+  @include width(85vw);
   @include flex(column, start, center, wrap, 1rem);
 }
 
@@ -339,6 +365,9 @@ section {
   }
 }
 
+.waves {
+  @include width(100%);
+}
 
 .branch {
   display: block;
@@ -458,6 +487,21 @@ section {
     border: 3px solid $carrot;
     color: $carrot;
     transition: all .25s;
+  }
+}
+
+
+.create-account {
+  @include width(400px);
+  @include height(65px);
+
+  @media (max-width: 750px) {
+    @include width(300px);
+    @include height(50px);
+  }
+  @media (max-width: 500px) {
+    @include width(225px);
+    @include height(35px);
   }
 }
 
@@ -666,13 +710,14 @@ section {
     gap: 6rem !important;
   }
   .header__item:first-child {
-    @include width(35%);
+    @include width(70%);
   }
   .header__titles {
     display: flex;
+    @include width(100%);
   }
   .header__item:last-child {
-    @include width(30vw);
+    @include width(20%);
   }
 }
 
@@ -695,7 +740,110 @@ section {
   .header__titles {
     display: none;
   }
+  .header__item:first-child {
+    @include width(20%);
+  }
+  .header__item:last-child {
+    @include width(60%);
+  }
 }
+
+
+
+
+
+.footer {
+  margin-top: -2rem;
+  background: $green;
+  @include width(100%);
+  @include height(300px);
+  padding: 3rem;
+  @include flex(row, space-around, center, nowrap, 1rem);
+
+  &__leafs {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    @include width(100%);
+  }
+  &__links {
+    @include width(40%);
+    @include flex(column, start, start, nowrap, .25rem);
+
+    @media (max-width: 880px) {
+      @include width(70%);
+    }
+    &__images {
+      @include flex(row, start, center, nowrap, 2rem);
+      @include width(100%);
+
+      @media (max-width: 600px) {
+        gap: 1rem;
+      }
+      &-image {
+        @include width(50px);
+        @media (max-width: 1000px) {
+          @include width(35px);
+        }
+        @media (max-width: 400px) {
+          @include width(25px);
+        }
+      }
+    }
+    &__title {
+      font-size: $footer2;
+      // font-family: "Montserrat", sans-serif;
+      color: $white;
+      @include width(100%);
+    }
+  }
+  &__titles {
+    @include width(40%);
+    @include flex(row, end, center, nowrap, 1rem);
+
+    @media (max-width: 880px) {
+      @include width(10%);
+    }
+    
+    &__texts {
+      @include width(80%);
+      @include flex(column, center, end, nowrap, 0rem);
+
+      @media (max-width: 880px) {
+        display: none;
+      }
+      &-title {
+        line-height: 1;
+        color: $white;
+        font-size: $footer;
+      }
+      &-subtitle {
+        font-family: "Montserrat", sans-serif;
+        color: $white;
+        font-weight: 700;
+        font-size: $footer2;
+      }
+    }
+    &__logo {
+      @include width(80px);
+      @media (max-width: 1000px) {
+        @include width(65px);
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -715,13 +863,123 @@ section {
     padding: 2rem;
 
     &__image {
-      @include width(40%);
+      @include width(30%);
     }
     &__titles {
-      @include width(50%);
+      @include width(65%);
+    }
+  }
+  @media (max-width: 1300px) {
+    &__eatsmart {
+      margin-top: 7.5vh;
+      @include flex(column, center, center, nowrap, 1rem);
+      &__image {
+        @include width(35%);
+      }
+      &__titles {
+        @include width(100%);
+      }
     }
   }
 
+
+  &__forwhat {
+    @include flex(column, start, center, nowrap, 5rem);
+      
+
+    &__items {
+      @include width(100%);
+      @include flex(column, center, center, nowrap, 1rem);
+      @media (max-width: 1200px) {
+        gap: 3rem;
+      }
+      @media (max-width: 900px) {
+        gap: 1rem;
+      }
+    }
+    &__item {
+      @include width(100%);
+      @include height(350px);
+      @include flex(row, start, start, nowrap, 1rem);
+      @media (max-width: 1200px) {
+        @include height(220px);
+      }
+      @media (max-width: 600px) {
+        @include height(170px);
+      }
+      @media (max-width: 480px) {
+        @include height(220px);
+      }
+    
+      &-image {
+        @include width(200px);
+        @media (max-width: 1200px) {
+          @include width(100px);
+        }
+        @media (max-width: 480px) {
+          @include width(50px);
+        }
+      }
+      &-texts {
+        @include width(80%);
+        @include height(100%);
+        @include flex(column, start, start, nowrap, 1rem);
+      }
+    }
+  }
+
+  &__threesteps {
+    @include width(85%);
+    @include flex(column, start, center, nowrap, 2rem);
+
+    &__image {
+      @include width(90%);
+    }
+  }
+
+  &__rightnow {
+    margin-top: -1.5rem;
+    @include width(100%);
+    @include height(300px);
+    @include flex(column, center, center, nowrap, 3rem);
+    background: $green;
+
+    &__image {
+      @include width(75px);
+      position: absolute;
+      top: 5vh;
+      left: 10vw;
+    }
+    &__image2 {
+      @include width(75px);
+      position: absolute;
+      top: 5vh;
+      right: 10vw;
+    }
+
+    @media (max-width: 900px) {
+      &__image, &__image2 {
+        @include width(50px);
+        top: 6vh;
+      }
+    }
+
+    @media (max-width: 500px) {
+      &__image, &__image2 {
+        @include width(35px);
+        top: 7cap;
+      }
+      &__image { left: 5vw; }
+      &__image2 { right: 5vw; }
+    }
+
+    @media (max-width: 400px) {
+      &__image, &__image2 {
+        @include width(25px);
+        top: 6vh;
+      }
+    }
+  }
 }
 
 
