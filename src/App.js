@@ -6,6 +6,8 @@ import Button from './components/Button/Button'
 import Input from './components/Input/Input'
 import Main from './pages/Main/Main'
 import Footer from './components/Footer/Footer'
+import Information from './pages/Information/Information'
+import Account from './pages/Account/Account'
 
 
 function App() {
@@ -26,7 +28,8 @@ function App() {
           <Routes>
             <Route path="/" element={ <Main /> } />
             <Route path="/calculator" element={ <Input /> } />
-            <Route path="/about" element={<Button title="рассчитать" styles="error" status="error" specialStyles=""/>} />
+            <Route path="/about" element={ <Information /> } />
+            <Route path="/account" element={ <Account /> } />
           </Routes>
         </main>
 

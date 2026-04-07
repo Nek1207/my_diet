@@ -135,9 +135,17 @@
   font-family: "Unbounded", sans-serif;
 }
 
+.heading3 {
+  text-align: center;
+  font-size: clamp(14px, 2.75vw, 50px);
+  color: #3BB273;
+  font-weight: 700;
+  font-family: "Unbounded", sans-serif;
+}
+
 .subheading {
   text-align: left;
-  font-size: clamp(14px, 3vw, 40px);
+  font-size: clamp(14px, 2.75vw, 40px);
   color: #777777;
   font-weight: 700;
   font-family: "Unbounded", sans-serif;
@@ -341,6 +349,10 @@ body,
 
 :where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
   margin-block: 0;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 :where(dd[class]) {
@@ -607,6 +619,28 @@ section {
   transition: all 0.25s;
 }
 
+.button--header {
+  max-width: 150px;
+  width: 150px;
+  min-width: 150px;
+  min-height: 35px;
+  height: auto;
+  cursor: pointer;
+  color: #247D4E;
+  background: #FAFAFA;
+  font-size: clamp(8px, 2.75vw, 22px);
+  border-radius: clamp(5px, 2vw, 10px);
+  border: 3px solid #FAFAFA;
+  transition: all 0.25s;
+}
+.button--header:hover {
+  cursor: pointer;
+  color: #FAFAFA;
+  background: none;
+  border: 3px solid #FAFAFA;
+  transition: all 0.25s;
+}
+
 .input {
   cursor: pointer;
   color: #FAFAFA;
@@ -762,9 +796,9 @@ section {
   font-family: "Montserrat", sans-serif;
 }
 .header .menu {
-  max-width: 50%;
-  width: 50%;
-  min-width: 50%;
+  max-width: 40%;
+  width: 40%;
+  min-width: 40%;
 }
 .header__links {
   font-size: clamp(12px, 7vw, 24px);
@@ -794,11 +828,13 @@ section {
   width: 10%;
   min-width: 10%;
 }
+.header__account-image {
+  max-width: 100%;
+  width: 100%;
+  min-width: 100%;
+}
 .header__signin {
-  display: none;
-  max-width: 50%;
-  width: 50%;
-  min-width: 50%;
+  display: block;
   color: #247D4E;
 }
 
@@ -919,6 +955,11 @@ section {
     min-width: 20%;
   }
 }
+@media (max-width: 650px) {
+  .header__titles {
+    display: none;
+  }
+}
 @media (max-width: 500px) {
   .header__leaf, .header__leaf2 {
     max-width: 45px;
@@ -938,9 +979,6 @@ section {
     width: 100%;
     min-width: 100%;
     gap: 6rem !important;
-  }
-  .header__titles {
-    display: none;
   }
   .header__item:first-child {
     max-width: 20%;
@@ -1031,7 +1069,7 @@ section {
   }
 }
 .footer__links__title {
-  font-size: clamp(8px, 2vw, 28px);
+  font-size: clamp(6px, 1.15vw, 26px);
   color: #FAFAFA;
   max-width: 100%;
   width: 100%;
@@ -1080,7 +1118,7 @@ section {
   font-family: "Montserrat", sans-serif;
   color: #FAFAFA;
   font-weight: 700;
-  font-size: clamp(8px, 2vw, 28px);
+  font-size: clamp(6px, 1.15vw, 26px);
 }
 .footer__titles__logo {
   max-width: 80px;
@@ -1322,4 +1360,191 @@ section {
     min-width: 25px;
     top: 6vh;
   }
+}
+
+.information {
+  margin-top: 15vh;
+  max-width: 100%;
+  width: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  min-height: 30vh;
+  height: auto;
+  padding: 2rem;
+}
+.information__item-first {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 4rem;
+  max-width: 100%;
+  width: 100%;
+  min-width: 100%;
+  min-height: 50%;
+  height: auto;
+  margin-top: 10vh;
+}
+@media (max-width: 1100px) {
+  .information__item-first {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+}
+@media (max-width: 700px) {
+  .information__item-first {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+}
+.information__item-last {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 4rem;
+  max-width: 100%;
+  width: 100%;
+  min-width: 100%;
+  min-height: 50%;
+  height: auto;
+}
+@media (max-width: 1100px) {
+  .information__item-last {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+}
+@media (max-width: 700px) {
+  .information__item-last {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+}
+.information__item-texts-first {
+  max-width: 60%;
+  width: 60%;
+  min-width: 60%;
+  text-align: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  flex-wrap: nowrap;
+  gap: 0rem;
+}
+@media (max-width: 1100px) {
+  .information__item-texts-first {
+    max-width: 100%;
+    width: 100%;
+    min-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 700px) {
+  .information__item-texts-first {
+    text-align: end;
+    max-width: 80%;
+    width: 80%;
+    min-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    flex-wrap: nowrap;
+    gap: 0rem;
+  }
+}
+.information__item-texts-last {
+  max-width: 60%;
+  width: 60%;
+  min-width: 60%;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0rem;
+}
+@media (max-width: 1100px) {
+  .information__item-texts-last {
+    max-width: 100%;
+    width: 100%;
+    min-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 700px) {
+  .information__item-texts-last {
+    text-align: start;
+    max-width: 80%;
+    width: 80%;
+    min-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: nowrap;
+    gap: 0rem;
+  }
+}
+.information__waves {
+  margin-top: -35vh;
+}
+@media (max-width: 1400px) {
+  .information__waves {
+    margin-top: -30vh;
+  }
+}
+@media (max-width: 1100px) {
+  .information__waves {
+    margin-top: -25vh;
+  }
+}
+@media (max-width: 800px) {
+  .information__waves {
+    margin-top: -17.5vh;
+  }
+}
+
+.infomation__item-image {
+  max-width: 17.5%;
+  width: 17.5%;
+  min-width: 17.5%;
 }/*# sourceMappingURL=styles.css.map */

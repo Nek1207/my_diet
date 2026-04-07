@@ -9,6 +9,7 @@ import headerleaf from "./../../assets/content/cont_headerleaf.svg"
 import headerleaf2 from "./../../assets/content/cont_headerleaf2.svg"
 
 import Navbar from "../Navbar/Navbar"
+import Button from "../Button/Button"
 
 const Header = () => {
 
@@ -34,8 +35,8 @@ const Header = () => {
             <Navbar />
           </div>
           <div className="header__item">
-            <img src={account} alt="account" className="header__account" />
-            <button className="header__signin">войти</button>
+            {/* <NavLink to="/account" className="header__account"><img src={account} alt="account" className="header__account-image" /></NavLink> */}
+            <NavLink to="/signin" className="header__signin"><Button title="войти" styles="header" status="header" specialStyles=""/></NavLink>
             <div className={`burger ${isOpen ? 'open' : ''}`} onClick={handleMenu}>
                 <span className="line"></span>
                 <span className="line"></span>

@@ -14,10 +14,10 @@ const Footer = () => {
         <footer className="footer">
             <div className="footer__links">
                 <div className="footer__links__images">
-                    <img src={gh} alt="gh" className="footer__links__images-image" />
-                    <img src={tg} alt="tg" className="footer__links__images-image" />
-                    <img src={vk} alt="vk" className="footer__links__images-image" />
-                    <img src={yt} alt="yt" className="footer__links__images-image" />
+                    <a href="https://github.com/Nek1207" target="_blank"><img src={gh} alt="gh" className="footer__links__images-image" /></a>
+                    <a href="https://t.me/@project_nek_official" target="_blank"><img src={tg} alt="tg" className="footer__links__images-image" /></a>
+                    <a href="https://vk.com/project_nek.official" target="_blank"><img src={vk} alt="vk" className="footer__links__images-image" /></a>
+                    <a href="https://www.youtube.com/@project_nek.official" target="_blank"><img src={yt} alt="yt" className="footer__links__images-image" /></a>
                 </div>
                 <h1 className="footer__links__title">© 2026, ASWACWAESACWA</h1>
             </div>
