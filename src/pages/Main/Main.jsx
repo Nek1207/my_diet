@@ -18,6 +18,8 @@ import time from "./../../assets/content/cont_time.svg"
 import more from "./../../assets/content/cont_more.svg"
 import economy from "./../../assets/content/cont_ecomony.svg"
 import waves from "./../../assets/content/cont_waves.svg"
+import Footer from '../../components/Footer/Footer'
+import Header from '../../components/Header/Header'
 
 const Main = () => {
   const sectionRefs = useScrollAnimation(0.8)
@@ -25,6 +27,8 @@ const Main = () => {
 
   return (
     <>
+      <Header />
+      
       <section ref={el => sectionRefs.current[0] = el} className="main__eatsmart smoothscrolling hidden">
           <img src={rounds} alt="rounds" className="main__eatsmart__image" />
           <div className="main__eatsmart__titles">
@@ -71,6 +75,8 @@ const Main = () => {
         <img className="main__rightnow__image" src={leaf1} alt="leaf1" />
         <img className="main__rightnow__image2" src={leaf2} alt="leaf2" />
       </section>
+
+      <Footer />
     </>
   )
 }

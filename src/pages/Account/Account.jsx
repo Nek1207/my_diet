@@ -18,6 +18,8 @@ import waves from "./../../assets/content/cont_waves.svg"
 
 import leaf1 from "./../../assets/content/cont_leaf.svg"
 import leaf2 from "./../../assets/content/cont_leaf2.svg"
+import Footer from '../../components/Footer/Footer'
+import Header from '../../components/Header/Header'
 
 
 const Account = () => {
@@ -26,6 +28,9 @@ const Account = () => {
 
   return (
     <>
+      <Header />
+      
+      <Footer />
     </>
   )
 }

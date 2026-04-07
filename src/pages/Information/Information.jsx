@@ -6,6 +6,7 @@ import Input from '../../components/Input/Input'
 import { useScrollAnimation } from '../../smoothscrolling'
 import { useScrollAnimationL } from '../../smoothscrolling-l'
 
+import Footer from '../../components/Footer/Footer'
 
 import logo from "./../../assets/logotype/logotype_darkgreen.svg"
 import projectnekLogo from "./../../assets/logotype/logotype_projectnek_darkgreen.svg"
@@ -18,6 +19,7 @@ import waves from "./../../assets/content/cont_waves.svg"
 
 import leaf1 from "./../../assets/content/cont_leaf.svg"
 import leaf2 from "./../../assets/content/cont_leaf2.svg"
+import Header from '../../components/Header/Header'
 
 
 const Information = () => {
@@ -26,6 +28,7 @@ const Information = () => {
 
   return (
     <>
+      <Header />
       <section className="information">
         <h1 ref={el => sectionRefs.current[0] = el} className="heading1 smoothscrolling hidden">информация <span className='c-carrot'>о приложении</span></h1>
         <div className="information__item-first">
@@ -53,6 +56,9 @@ const Information = () => {
       </section>
       <h2 ref={el => sectionRefs.current[5] = el} className="heading2 c-white smoothscrolling hidden">следите за автором <span className='c-darkgreen'>в соцсетях!</span></h2>
       <img className="waves information__waves" src={waves} alt="waves" />
+
+      <Footer />
+
     </>
   )
 }

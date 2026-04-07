@@ -464,6 +464,16 @@ input {
   font-size: clamp(8px, 3vw, 20px);
 }
 
+input::-moz-placeholder {
+  padding-left: 2rem;
+  margin-left: 2rem;
+}
+
+input::placeholder {
+  padding-left: 2rem;
+  margin-left: 2rem;
+}
+
 :where([fill]:not([fill=none],
 [fill^=url])) {
   fill: currentColor;
@@ -645,8 +655,18 @@ section {
   cursor: pointer;
   color: #FAFAFA;
   background: #E76F51;
+  max-width: 450px;
+  width: 450px;
+  min-width: 450px;
+  min-height: 35px;
+  height: auto;
   border: 3px solid #E76F51;
   transition: all 0.25s;
+}
+.input__icon {
+  max-width: 25px;
+  width: 25px;
+  min-width: 25px;
 }
 .input::-moz-placeholder {
   font-family: "Montserrat", sans-serif;
@@ -1316,6 +1336,7 @@ section {
   background: #3BB273;
 }
 .main__rightnow__image {
+  animation: leafAnimation 2s 1s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
   max-width: 75px;
   width: 75px;
   min-width: 75px;
@@ -1324,6 +1345,7 @@ section {
   left: 10vw;
 }
 .main__rightnow__image2 {
+  animation: leafAnimation 2s 2s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
   max-width: 75px;
   width: 75px;
   min-width: 75px;
@@ -1362,6 +1384,17 @@ section {
   }
 }
 
+@keyframes leafAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.85vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .information {
   margin-top: 15vh;
   max-width: 100%;
@@ -1547,4 +1580,96 @@ section {
   max-width: 17.5%;
   width: 17.5%;
   min-width: 17.5%;
+}
+
+.signin {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  max-width: 100vw;
+  width: 100vw;
+  min-width: 100vw;
+  min-height: 100vh;
+  height: auto;
+}
+.signin__logo {
+  background: #FAFAFA;
+  min-height: 100vh;
+  height: auto;
+  max-width: 50%;
+  width: 50%;
+  min-width: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.signin__logo-image, .signin__logo-title, .signin__logo-subtitle {
+  position: absolute;
+}
+.signin__logo-image {
+  top: 45vh;
+  left: 9.5vw;
+}
+.signin__logo-title {
+  top: 65vh;
+  left: 10vw;
+  font-size: clamp(12px, 7vw, 24px);
+  color: #247D4E;
+}
+.signin__logo-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(8px, 7vw, 16px);
+  font-weight: 700;
+  color: #247D4E;
+  top: 69vh;
+  left: 9.5vw;
+}
+.signin__form {
+  background: #3BB273;
+  max-width: 62%;
+  width: 62%;
+  min-width: 62%;
+  min-height: 100vh;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 50vh;
+  transform: translateX(23.5%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+.signin__form__image {
+  animation: leafAnimation 2s 1s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
+  max-width: 75px;
+  width: 75px;
+  min-width: 75px;
+  position: absolute;
+  top: 30vh;
+  left: 5vw;
+}
+.signin__form__image2 {
+  animation: leafAnimation 2s 2s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
+  max-width: 75px;
+  width: 75px;
+  min-width: 75px;
+  position: absolute;
+  top: 30vh;
+  right: 5vw;
+}
+
+.branch__signin {
+  max-width: 25%;
+  width: 25%;
+  min-width: 25%;
+  position: absolute;
+  top: -5vh;
+  left: 65vw;
+  z-index: 1000;
 }/*# sourceMappingURL=styles.css.map */
