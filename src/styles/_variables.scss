@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap');
+
+$white: #FAFAFA !default;
+$black: #2F2F2F !default;
+$gray: #777777 !default;
+$lightgray: #DFDFDF !default;
+$green: #3BB273 !default;
+$darkgreen: #247D4E !default;
+$lightgreen: #9AE6BE !default;
+$lightergreen: #ADE3C7 !default;
+$proteins: #2D9CDB !default;
+$fats: #EB5757 !default;
+$carbs: #E9C46A !default;
+$carrot: #E76F51 !default;
+$darkcarrot: #B85018 !default;
+$danger: #FF595E !default;
+
+$numbers: clamp(30px, 10vw, 150px) !default;
+$heading1: clamp(24px, 5vw, 64px) !default;
+$heading2: clamp(16px, 3vw, 56px) !default;
+$heading3: clamp(14px, 2.75vw, 50px) !default;
+$subheading: clamp(14px, 2.75vw, 40px) !default;
+$footer: clamp(10px, 3vw, 30px) !default;
+$footer2: clamp(6px, 1.15vw, 26px) !default;
+$header: clamp(12px, 7vw, 24px) !default;
+$header2: clamp(8px, 7vw, 16px) !default;
+$button: clamp(10px, 3vw, 24px) !default;
+$button2: clamp(8px, 2.75vw, 22px) !default;
+
+$desc1: clamp(14px, 2.5vw, 36px) !default;
+$desc2: clamp(10px, 2vw, 30px) !default;
+$input: clamp(8px, 3vw, 20px) !default;
+$desc3: clamp(8px, 1vw, 20px) !default;
+$li: clamp(6px, 0.5vw, 16px) !default;
+
+$br1: clamp(10px, 5vw, 50px) !default;
+$br2: clamp(10px, 4vw, 25px) !default;
+$br3: clamp(5px, 3vw, 15px) !default;
+$br4: clamp(5px, 2vw, 10px) !default;
+
+.c-white { color: $white; }
+.c-black { color: $black; }
+.c-gray { color: $gray !important; }
+.c-lightgray { color: $lightgray !important; }
+.c-green { color: $green !important; }
+.c-darkgreen { color: $darkgreen !important; }
+.c-lightgreen { color: $lightgreen !important; }
+.c-lightergreen { color: $lightergreen !important; }
+.c-proteins { color: $proteins !important; }
+.c-fats { color: $fats !important; }
+.c-carbs { color: $carbs !important; }
+.c-carrot { color: $carrot !important; }
+.c-darkcarrot { color: $darkcarrot !important; }
+.c-danger { color: $danger !important; }
+
+.bg { display: block; width: 100%; border-radius: $br2; padding: .5rem 1rem; }
+
+.bg-white { background-color: $white; }
+.bg-black { background-color: $black; }
+.bg-gray { background-color: $gray; }
+.bg-lightgray { background-color: $lightgray; }
+.bg-green { background-color: $green; }
+.bg-darkgreen { background-color: $darkgreen; }
+.bg-lightgreen { background-color: $lightgreen; }
+.bg-lightergreen { background-color: $lightergreen; }
+.bg-proteins { background-color: $proteins; }
+.bg-fats { background-color: $fats; }
+.bg-carbs { background-color: $carbs; }
+.bg-carrot { background-color: $carrot; }
+.bg-darkcarrot { background-color: $darkcarrot; }
+.bg-danger { background-color: $danger; }
+
+.heading1 {
+  text-align: center;
+  font-size: $heading1;
+  font-weight: 700;
+  color: $green;
+  font-family: "Unbounded", sans-serif;
+}
+
+.heading2 {
+  text-align: center;
+  font-size: $heading2;
+  color: $gray;
+  font-weight: 700;
+  font-family: "Unbounded", sans-serif;
+}
+
+.heading3 {
+  text-align: center;
+  font-size: $heading3;
+  color: $green;
+  font-weight: 700;
+  font-family: "Unbounded", sans-serif;
+}
+
+.subheading {
+  text-align: left;
+  font-size: $subheading;
+  color: $gray;
+  font-weight: 700;
+  font-family: "Unbounded", sans-serif;
+}
+
+.desc1 {
+  text-align: left;
+  font-size: $desc1;
+  color: $gray;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}
+
+.desc2 {
+  text-align: left;
+  font-size: $desc2;
+  color: $gray;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}
+
+.numbers {
+  text-align: start;
+  font-size: $numbers;
+  color: $black;
+  font-weight: 700;
+  font-family: "Unbounded", sans-serif;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.t-left {
+  text-align: left;
+}
+
+.t-right {
+  text-align: right;
+}
+
+.r0 { rotate: 0deg; }
+.r15 { rotate: 15deg; }
+.r30 { rotate: 30deg; }
+.r45 { rotate: 45deg; }
+.r60 { rotate: 60deg; }
+.r75 { rotate: 75deg; }
+.r90 { rotate: 90deg; }
+.r105 { rotate: 105deg; }
+.r120 { rotate: 120deg; }
+.r135 { rotate: 135deg; }
+.r150 { rotate: 150deg; }
+.r165 { rotate: 165deg; }
+.r180 { rotate: 180deg; }
+.r195 { rotate: 195deg; }
+.r210 { rotate: 210deg; }
+.r225 { rotate: 225deg; }
+.r240 { rotate: 240deg; }
+.r255 { rotate: 255deg; }
+.r270 { rotate: 270deg; }
+.r285 { rotate: 285deg; }
+.r300 { rotate: 300deg; }
+.r315 { rotate: 315deg; }
+.r330 { rotate: 330deg; }
+.r345 { rotate: 345deg; }
+
+.smoothscrolling.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s ease-in-out;
+}
+
+.smoothscrolling.hidden {
+  opacity: 0;
+  transform: translateY(3rem);
+  transition: all 0.5s ease-in-out;
+}
+
+.smoothscrolling-l {
+  transition: all 4s сubic-bezier(0.68, -0.55, 0.265, 1.55);
+  overflow-x: visible; /* важно */
+}
+.smoothscrolling-l.hidden {
+  opacity: 0;
+  margin-left: -100%;
+}
+.smoothscrolling-l.visible {
+  opacity: 1;
+  margin-left: 0;
+}
+
+.smoothscrolling-r {
+  transition: all 4s сubic-bezier(0.68, -0.55, 0.265, 1.55);
+  overflow-x: visible; /* важно */
+}
+.smoothscrolling-r.hidden {
+  opacity: 0;
+  margin-right: -100%;
+}
+.smoothscrolling-r.visible {
+  opacity: 1;
+  margin-right: 0;
+}

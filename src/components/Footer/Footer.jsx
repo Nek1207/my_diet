@@ -1,5 +1,7 @@
 import React from "react"
 
+import "./../Footer/Footer.scss"
+
 import logo from "./../../assets/logotype/logotype_white.svg"
 
 import gh from "./../../assets/social/social_gh.svg"

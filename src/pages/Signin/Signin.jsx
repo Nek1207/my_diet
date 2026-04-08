@@ -1,8 +1,10 @@
 import React from 'react'
 import { NavLink } from "react-router-dom"
 
+import "./../Signin/Signin.scss"
+
 import Button from "../../components/Button/Button"
-import Input from '../../components/Input/Input'
+import Input from '../../components/Input/InputOld'
 
 import { useScrollAnimation } from '../../smoothscrolling'
 import { useScrollAnimationL } from '../../smoothscrolling-l'
@@ -37,7 +39,7 @@ const Signin = () => {
       <div className="branch branch__signin smoothscrolling-r hidden" ref={el => branchesRefs.current[0] = el}><img className="branch__image" src={branch2} alt="branch2"/></div>
         <div className="signin__form">
             <h1 className="heading2 c-white t-center">авторизация</h1>
-            <Input type="password" id="password" name="password" placeholder="укажите здесь Ваш пароль..." value="" styles="password" status="password" isRequired="true" isDisabled="false" />
+            {/* <Input type="password" id="password" name="password" placeholder="укажите здесь Ваш пароль..." value="" styles="password" status="password" isRequired="true" isDisabled="false" /> */}
             <img className="signin__form__image" src={leaf1} alt="leaf1" />
             <img className="signin__form__image2" src={leaf2} alt="leaf2" />
 

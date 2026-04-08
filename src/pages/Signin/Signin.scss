@@ -1,0 +1,78 @@
+@import "../../styles";
+
+.signin {
+  // z-index: 1000000;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  @include flex(row, center, center, nowrap, 0);
+  @include width(100vw);
+  @include height(100vh);
+
+  &__logo {
+    background: $white;
+    @include height(100vh);
+    @include width(50%);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    &-image, &-title, &-subtitle {
+      position: absolute;
+    }
+    &-image {
+      top: 45vh;
+      left: 9.5vw;
+    }
+    &-title {
+      top: 65vh;
+      left: 10vw;
+      font-size: $header;
+      color: $darkgreen;
+    }
+    &-subtitle {
+      font-family: "Montserrat", sans-serif;
+      font-size: $header2;
+      font-weight: 700;
+      color: $darkgreen;
+      top: 69vh;
+      left: 9.5vw;
+    }
+  }
+  &__form {
+    background: $green;
+    @include width(62%);
+    @include height(100vh);
+    position: fixed;
+    top: 0;
+    left: 50vh;
+    transform: translateX(23.5%);
+    @include flex(column, center, center, nowrap, 1rem);
+
+
+    &__image {
+      animation: leafAnimation 2s 1s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
+      @include width(75px);
+      position: absolute;
+      top: 30vh;
+      left: 5vw;
+    }
+    &__image2 {
+      animation: leafAnimation 2s 2s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
+      @include width(75px);
+      position: absolute;
+      top: 30vh;
+      right: 5vw;
+    }
+
+  }
+
+}
+
+.branch__signin {
+  @include width(25%);
+  position: absolute;
+  top: -5vh;
+  left: 65vw;
+  z-index: 1000;
+}

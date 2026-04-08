@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { NavLink } from "react-router-dom"
 
-import "./../Header/burger.css"
+import "./../Header/Header.scss"
 
 import logo from "./../../assets/logotype/logotype_white.svg"
 import account from "./../../assets/input/input_account.svg"

@@ -1,0 +1,217 @@
+@import "./variables";
+@import "./mixins";
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    transition: all .4s;
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Скрывает полосу прокрутки */
+}
+
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+:where( h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+body {
+  overflow-x: hidden;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+:where(ul[class]) {
+  list-style: none;
+}
+img {
+  user-select: none;
+}
+h1, h2, h3, h4, h5, h6, p, a, li {
+  font-family: "Unbounded", sans-serif;
+  text-decoration: none;
+  list-style: none;
+  list-style-type: none;
+  color: $black;
+  font-weight: 600;
+  font-size: 20px;
+  user-select: none;
+}
+:where(address[class]) {
+  font-style: normal;
+}
+p {
+  margin-block: 0;
+}
+:where(p:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+input,
+textarea,
+select {
+  font-family: "Montserrat", sans-serif;
+}
+button {
+  font-family: "Unbounded", sans-serif;
+}
+html {
+  height: 100%;
+  scrollbar-gutter: stable;
+}
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100%;
+  line-height: 1.5;
+}
+a:where([class]) {
+  display: inline-flex;
+}
+button,
+label {
+  cursor: pointer;
+}
+button {
+  border-radius: $br3;
+  @include width(250px);
+  @include height(50px);
+  font-weight: 700;
+  font-size: $button;
+}
+input {
+  border-radius: $br3;
+  @include width(600px);
+  @include height(50px);
+  padding: .5rem;
+  font-weight: 700;
+  font-size: $input;
+}
+input::placeholder {
+  padding-left: 2rem;
+  margin-left: 2rem;
+}
+:where([fill]:not(
+  [fill="none"],
+  [fill^="url"]
+)) {
+  fill: currentColor;
+}
+:where([stroke]:not([stroke="none"], [stroke^="url"])) {
+  stroke: currentColor;
+}
+svg * {
+  transition-property: fill, stroke;
+}
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+section {
+  z-index: 1000;
+  position: relative;
+  @include height(200px);
+  @include width(85vw);
+  @include flex(column, start, center, wrap, 1rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.waves {
+  @include width(100%);
+}
+.branch {
+  display: block;
+  @include width(100vw);
+  @include height(50px);
+  position: relative;
+  top: 0;
+  left: 0;
+  &__image {
+    @include width(100%);
+    @include height(100%);
+  }
+}
+.container {
+  position: relative;
+  @include flex(column, start, center, nowrap, 1rem);
+  @include width(100vw);
+  min-height: 100vh;
+  height: auto;
+  background: $white;
+  color: $black;
+}
+
+
+.create-account {
+  @include width(400px);
+  @include height(65px);
+
+  @media (max-width: 750px) {
+    @include width(300px);
+    @include height(50px);
+  }
+  @media (max-width: 500px) {
+    @include width(225px);
+    @include height(35px);
+  }
+}
+
+.overlay {
+  display: none;
+}
+
+.overlay.open {
+  display: block;
+  position: absolute;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+
+}
+
+@keyframes leafAnimation {
+  0% {
+    transform: translateY(0);    
+  }
+  50% {
+    transform: translateY(-0.85vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

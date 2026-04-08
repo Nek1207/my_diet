@@ -1,0 +1,137 @@
+@import "../../styles";
+
+.main {
+  position: relative;
+  z-index: 1000;
+  @include flex(column, start, center, nowrap, 1rem);
+  @include width(100%);
+  @include height(100%);
+  padding: 0;
+
+  &__eatsmart {
+    margin-top: 15vh;
+    @include flex(row, center, center, nowrap, 1rem);
+    @include height(20vh);
+    padding: 2rem;
+
+    &__image {
+      @include width(30%);
+    }
+    &__titles {
+      @include width(65%);
+    }
+  }
+  @media (max-width: 1300px) {
+    &__eatsmart {
+      margin-top: 7.5vh;
+      @include flex(column, center, center, nowrap, 1rem);
+      &__image {
+        @include width(35%);
+      }
+      &__titles {
+        @include width(100%);
+      }
+    }
+  }
+
+
+  &__forwhat {
+    @include flex(column, start, center, nowrap, 5rem);
+      
+
+    &__items {
+      @include width(100%);
+      @include flex(column, center, center, nowrap, 1rem);
+      @media (max-width: 1200px) {
+        gap: 3rem;
+      }
+      @media (max-width: 900px) {
+        gap: 1rem;
+      }
+    }
+    &__item {
+      @include width(100%);
+      @include height(350px);
+      @include flex(row, start, start, nowrap, 1rem);
+      @media (max-width: 1200px) {
+        @include height(220px);
+      }
+      @media (max-width: 600px) {
+        @include height(170px);
+      }
+      @media (max-width: 480px) {
+        @include height(220px);
+      }
+    
+      &-image {
+        @include width(200px);
+        @media (max-width: 1200px) {
+          @include width(100px);
+        }
+        @media (max-width: 480px) {
+          @include width(50px);
+        }
+      }
+      &-texts {
+        @include width(80%);
+        @include height(100%);
+        @include flex(column, start, start, nowrap, 1rem);
+      }
+    }
+  }
+
+  &__threesteps {
+    @include width(85%);
+    @include flex(column, start, center, nowrap, 2rem);
+
+    &__image {
+      @include width(90%);
+    }
+  }
+
+  &__rightnow {
+    margin-top: -1.5rem;
+    @include width(100%);
+    @include height(300px);
+    @include flex(column, center, center, nowrap, 3rem);
+    background: $green;
+
+    &__image {
+      animation: leafAnimation 2s 1s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
+      @include width(75px);
+      position: absolute;
+      top: 5vh;
+      left: 10vw;
+    }
+    &__image2 {
+      animation: leafAnimation 2s 2s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
+      @include width(75px);
+      position: absolute;
+      top: 5vh;
+      right: 10vw;
+    }
+
+    @media (max-width: 900px) {
+      &__image, &__image2 {
+        @include width(50px);
+        top: 6vh;
+      }
+    }
+
+    @media (max-width: 500px) {
+      &__image, &__image2 {
+        @include width(35px);
+        top: 7cap;
+      }
+      &__image { left: 5vw; }
+      &__image2 { right: 5vw; }
+    }
+
+    @media (max-width: 400px) {
+      &__image, &__image2 {
+        @include width(25px);
+        top: 6vh;
+      }
+    }
+  }
+}

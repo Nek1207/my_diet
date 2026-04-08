@@ -1,7 +1,9 @@
 import React from 'react'
 
+import "./../Main/Main.scss"
+
 import Button from "../../components/Button/Button"
-import Input from '../../components/Input/Input'
+import Input from '../../components/Input/InputOld'
 
 import { useScrollAnimation } from '../../smoothscrolling'
 import { useScrollAnimationL } from '../../smoothscrolling-l'
