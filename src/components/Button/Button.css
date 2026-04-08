@@ -1,11 +1,11 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap");
 .c-white {
-  color: #FAFAFA;
+  color: #FAFAFA !important;
 }
 
 .c-black {
-  color: #2F2F2F;
+  color: #2F2F2F !important;
 }
 
 .c-gray {
@@ -617,6 +617,10 @@ section {
   border: 3px solid #E76F51;
   color: #E76F51;
   transition: all 0.25s;
+}
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .button--default {

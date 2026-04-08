@@ -15,6 +15,10 @@
     color: $carrot;
     transition: all .25s;
   }
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 
 .button--default {

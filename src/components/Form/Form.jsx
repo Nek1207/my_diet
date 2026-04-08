@@ -5,10 +5,24 @@ import "./../Form/Form.scss"
 import Input from './../Input/Input'
 
 const Form = () => {
+  const [login, setLogin] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState(false)
   const [passwordSuccess, setPasswordSuccess] = useState(false)
+  const [loginSuccess, setLoginSuccess] = useState(false)
+
+  const [form, setForm] = useState({
+    login: '',
+    password: '',
+    email: '',
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }));
+  }
 
   const validateEmail = (value) => {
     const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -19,17 +33,51 @@ const Form = () => {
     const val = e.target.value;
     setEmail(val)
     validateEmail(val)
-  };
+  }
 
   const handlePasswordChange = (e) => {
     const val = e.target.value
     setPassword(val)
     setPasswordSuccess(val.length >= 8)
-  };
+  }
+
+  const handleLoginChange = (e) => {
+    const val = e.target.value
+    setLogin(val)
+    setLoginSuccess(val.length >= 10)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setTimeout(() => {
+      console.log('Отправленные данные:', form)
+      setIsSubmitting(false)
+      // Здесь можно добавить сброс формы или редирект
+    }, 4000)
+  }
 
   return (
-    <form style={{ maxWidth: '400px', margin: '20px auto' }}>
-      <div style={{ marginBottom: '16px' }}>
+    <form onSubmit={handleSubmit} className="form">
+
+      <div className="form__item">
+        <Input
+          type="text"
+          name="login"
+          value={login}
+          onChange={handleLoginChange}
+          placeholder="Логин"
+          leftIcon="login"
+          isDisabled={isSubmitting}
+          isRequired
+          status={loginSuccess ? 'success' : 'default'}
+        />
+        {loginSuccess && (
+          <small style={{ color: '#3BB273' }}>свободный логин</small>
+        )}
+      </div>
+
+      <div className="form__item">
         <Input
           type="email"
           name="email"
@@ -38,14 +86,15 @@ const Form = () => {
           placeholder="Email"
           leftIcon="email"
           status={emailError ? 'error' : 'default'}
+          isDisabled={isSubmitting}
           isRequired
         />
         {emailError && (
-          <small style={{ color: '#ef4444' }}>Некорректный email</small>
+          <small style={{ color: '#FF595E' }}>укажите e-mail правильно</small>
         )}
       </div>
 
-      <div style={{ marginBottom: '16px' }}>
+      <div className="form__item">
         <Input
           type="password"
           name="password"
@@ -53,14 +102,18 @@ const Form = () => {
           onChange={handlePasswordChange}
           placeholder="Пароль"
           leftIcon="password"
+          isDisabled={isSubmitting}
+          isRequired
           status={passwordSuccess ? 'success' : 'default'}
         />
         {passwordSuccess && (
-          <small style={{ color: '#10b981' }}>Пароль достаточно длинный</small>
+          <small style={{ color: '#3BB273' }}>надёжный пароль</small>
         )}
       </div>
 
-      <button type="submit">Отправить</button>
+      <button class="button" type="submit" disabled={isSubmitting}>
+        {isSubmitting ? 'Отправка...' : 'Отправить'}
+      </button>
     </form>
   )
 }
