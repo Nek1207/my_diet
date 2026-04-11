@@ -1,78 +1,160 @@
 @import "../../styles";
 
 .signin {
-  // z-index: 1000000;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  @include flex(row, center, center, nowrap, 0);
-  @include width(100vw);
-  @include height(100vh);
+  overflow-y: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $green;
+  @include flex(row, space-between, start, nowrap, 0rem);
+  @include width(100%);
+  @include height(100%);
+
+  @media (max-width: 1380px) {
+    @include flex(column, start, start, nowrap, 0rem);
+  }
 
   &__logo {
     background: $white;
     @include height(100vh);
-    @include width(50%);
-    position: fixed;
-    top: 0;
-    left: 0;
+    max-height: 100vh;
 
-    &-image, &-title, &-subtitle {
+    @media (max-width: 1450px) {
+      display: none;
+    }
+
+    &-background {
+      @include width(100%);
+      @include height(100vh);
+      max-height: 100vh;
+    }
+    &-numbers {
       position: absolute;
-    }
-    &-image {
-      top: 45vh;
-      left: 9.5vw;
-    }
-    &-title {
-      top: 65vh;
-      left: 10vw;
-      font-size: $header;
+      top: 40vh;
+      left: 5vw;
+      font-size: $numbers;
       color: $darkgreen;
-    }
-    &-subtitle {
-      font-family: "Montserrat", sans-serif;
-      font-size: $header2;
-      font-weight: 700;
-      color: $darkgreen;
-      top: 69vh;
-      left: 9.5vw;
     }
   }
-  &__form {
+  &__texts {
     background: $green;
-    @include width(62%);
+    @include width(50%);
     @include height(100vh);
-    position: fixed;
-    top: 0;
-    left: 50vh;
-    transform: translateX(23.5%);
+    padding-left: 4rem;
+    z-index: 10;
     @include flex(column, center, center, nowrap, 1rem);
 
-
+    @media (max-width: 1000px) {
+      @include width(80%);
+      margin-top: 5vh;
+      @include flex(column, start, center, nowrap, 1rem);
+    }
+    &-inner {
+      // margin-top: 5rem;
+      @include width(100%);
+      @include flex(row, start, center, nowrap, 2rem);
+    }
+    &__image, &__image2 {
+      @include width(50px);
+    }
     &__image {
       animation: leafAnimation 2s 1s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
-      @include width(75px);
-      position: absolute;
-      top: 30vh;
-      left: 5vw;
     }
     &__image2 {
       animation: leafAnimation 2s 2s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
-      @include width(75px);
-      position: absolute;
-      top: 30vh;
-      right: 5vw;
     }
+    &-number {
+      @include width(400px);
+      @include height(200px);
+      background: $white;
+      color: $green;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: 10rem;
+      line-height: 1.25;
+      padding: 0 auto;
+      border-radius: $br1;
+      text-align: center;
 
+      @media (max-width: 1200px) {
+        line-height: 1;
+        @include width(300px);
+        @include height(175px);
+        font-size: 8rem;
+        @include flex(row, center, center, nowrap, 0rem);
+      }
+      @media (max-width: 1000px) {
+        @include width(250px);
+        @include height(150px);
+        font-size: 6rem;
+        border-radius: $br2;
+      }
+      @media (max-width: 700px) {
+        @include width(200px);
+        @include height(100px);
+        font-size: 4rem;
+        border-radius: $br2;
+      }
+      @media (max-width: 550px) {
+        @include width(125px);
+        @include height(75px);
+        font-size: 2.5rem;
+        border-radius: $br3;
+      }
+    }
+    &-button {
+      @include width(100%);
+      z-index: 200000 !important;
+    }
   }
 
+  
 }
 
 .branch__signin {
-  @include width(25%);
-  position: absolute;
-  top: -5vh;
-  left: 65vw;
-  z-index: 1000;
+  @include width(35% !important);
+  transform: translateX(120%) !important;
+  position: absolute !important;
+  z-index: 1 !important;
+  top: -5vh !important;
+  left: 0 !important;
+  z-index: 1000 !important;
+
+  @media (max-width: 1450px) {
+    left: 0 !important;
+    rotate: 180deg !important;
+    transform: translateX(0% !important);
+  }
+  @media (max-width: 1000px) {
+    top: 45vh !important;
+    @include width(75% !important);
+  }
+  @media (max-width: 900px) {
+    top: 35vh !important;
+    @include width(65% !important);
+  }
+  @media (max-width: 700px) {
+    top: 35vh !important;
+    @include width(65% !important);
+  }
+  @media (max-width: 550px) {
+    top: 30vh !important;
+    @include width(90% !important);
+  }
+}
+
+@media (max-width: 900px) {
+  .mt4 {
+    margin-top: 2.5rem;
+  }
+  .mt15 {
+    margin-top: 10rem;
+  }
+  .desc3 {
+    font-size: .75rem;
+  }
+}
+
+.desc3 {
+  @include width(90%);
 }
