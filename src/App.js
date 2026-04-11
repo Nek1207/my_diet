@@ -10,6 +10,8 @@ import Information from './pages/Information/Information'
 import Account from './pages/Account/Account'
 import Signin from './pages/Signin/Signin'
 import Form from './components/Form/Form'
+import NotFound from './pages/NotFound/NotFound'
+import Forbidden from './pages/Forbidden/Forbidden'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -29,6 +31,8 @@ function App() {
             <Route path="/about" element={ <Information /> } />
             <Route path="/account" element={ <Account /> } />
             <Route path="/signin" element={ <Signin /> } />
+            <Route path="/notfound" element={ <NotFound /> } />
+            <Route path="/forbidden" element={ <Forbidden /> } />
           </Routes>
         </main>
       </div>

@@ -15,20 +15,28 @@
 
 .bg { display: block; width: 100%; border-radius: $br2; padding: .5rem 1rem; }
 
-.bg-white { background-color: $white; }
-.bg-black { background-color: $black; }
-.bg-gray { background-color: $gray; }
-.bg-lightgray { background-color: $lightgray; }
-.bg-green { background-color: $green; }
-.bg-darkgreen { background-color: $darkgreen; }
-.bg-lightgreen { background-color: $lightgreen; }
-.bg-lightergreen { background-color: $lightergreen; }
-.bg-proteins { background-color: $proteins; }
-.bg-fats { background-color: $fats; }
-.bg-carbs { background-color: $carbs; }
-.bg-carrot { background-color: $carrot; }
-.bg-darkcarrot { background-color: $darkcarrot; }
-.bg-danger { background-color: $danger; }
+.bg-white { background-color: $white !important; }
+.bg-black { background-color: $black !important; }
+.bg-gray { background-color: $gray !important; }
+.bg-lightgray { background-color: $lightgray !important; }
+.bg-green { background-color: $green !important; }
+.bg-darkgreen { background-color: $darkgreen !important; }
+.bg-lightgreen { background-color: $lightgreen !important; }
+.bg-lightergreen { background-color: $lightergreen !important; }
+.bg-proteins { background-color: $proteins !important; }
+.bg-fats { background-color: $fats !important; }
+.bg-carbs { background-color: $carbs !important; }
+.bg-carrot { background-color: $carrot !important; }
+.bg-darkcarrot { background-color: $darkcarrot !important; }
+.bg-danger { background-color: $danger !important; }
+
+.f-unbounded {
+  font-family: "Unbounded", sans-serif !important;
+}
+
+.f-montserrat {
+  font-family: "Montserrat", sans-serif !important;
+}
 
 .heading1 {
   text-align: center;
@@ -122,6 +130,40 @@
 .r315 { rotate: 315deg; }
 .r330 { rotate: 330deg; }
 .r345 { rotate: 345deg; }
+
+.mt0 { margin-top: 0rem; }
+.mt1 { margin-top: 1rem; }
+.mt2 { margin-top: 2rem; }
+.mt3 { margin-top: 3rem; }
+.mt4 { margin-top: 4rem; }
+.mt5 { margin-top: 5rem; }
+.mt6 { margin-top: 6rem; }
+.mt7 { margin-top: 7rem; }
+.mt8 { margin-top: 8rem; }
+.mt9 { margin-top: 9rem; }
+.mt10 { margin-top: 10rem; }
+.mt11 { margin-top: 11rem; }
+.mt12 { margin-top: 12rem; }
+.mt13 { margin-top: 13rem; }
+.mt14 { margin-top: 14rem; }
+.mt15 { margin-top: 15rem; }
+
+.pt0 { padding-top: 0rem; }
+.pt1 { padding-top: 1rem; }
+.pt2 { padding-top: 2rem; }
+.pt3 { padding-top: 3rem; }
+.pt4 { padding-top: 4rem; }
+.pt5 { padding-top: 5rem; }
+.pt6 { padding-top: 6rem; }
+.pt7 { padding-top: 7rem; }
+.pt8 { padding-top: 8rem; }
+.pt9 { padding-top: 9rem; }
+.pt10 { padding-top: 10rem; }
+.pt11 { padding-top: 11rem; }
+.pt12 { padding-top: 12rem; }
+.pt13 { padding-top: 13rem; }
+.pt14 { padding-top: 14rem; }
+.pt15 { padding-top: 15rem; }
 
 .smoothscrolling.visible {
   opacity: 1;

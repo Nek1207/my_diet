@@ -59,60 +59,61 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit} className="form">
+      <div className="form__items">
 
-      <div className="form__item">
-        <Input
-          type="text"
-          name="login"
-          value={login}
-          onChange={handleLoginChange}
-          placeholder="Логин"
-          leftIcon="login"
-          isDisabled={isSubmitting}
-          isRequired
-          status={loginSuccess ? 'success' : 'default'}
-        />
-        {loginSuccess && (
-          <small style={{ color: '#3BB273' }}>свободный логин</small>
-        )}
+        <div className="form__items-item">
+          <Input
+            type="text"
+            name="login"
+            value={login}
+            onChange={handleLoginChange}
+            placeholder="логин"
+            leftIcon="login"
+            isDisabled={isSubmitting}
+            isRequired
+            status={loginSuccess ? 'success' : 'default'}
+          />
+          {loginSuccess && (
+            <small style={{ color: '#3BB273' }}>свободный логин</small>
+          )}
+        </div>
+
+        <div className="form__items-item">
+          <Input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmailChange}
+            placeholder="e-mail"
+            leftIcon="email"
+            status={emailError ? 'error' : 'default'}
+            isDisabled={isSubmitting}
+            isRequired
+          />
+          {emailError && (
+            <small style={{ color: '#FF595E' }}>укажите e-mail правильно</small>
+          )}
+        </div>
+
+        <div className="form__items-item">
+          <Input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePasswordChange}
+            placeholder="пароль"
+            leftIcon="password"
+            isDisabled={isSubmitting}
+            isRequired
+            status={passwordSuccess ? 'success' : 'default'}
+          />
+          {passwordSuccess && (
+            <small style={{ color: '#3BB273' }}>надёжный пароль</small>
+          )}
+        </div>
       </div>
-
-      <div className="form__item">
-        <Input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleEmailChange}
-          placeholder="Email"
-          leftIcon="email"
-          status={emailError ? 'error' : 'default'}
-          isDisabled={isSubmitting}
-          isRequired
-        />
-        {emailError && (
-          <small style={{ color: '#FF595E' }}>укажите e-mail правильно</small>
-        )}
-      </div>
-
-      <div className="form__item">
-        <Input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePasswordChange}
-          placeholder="Пароль"
-          leftIcon="password"
-          isDisabled={isSubmitting}
-          isRequired
-          status={passwordSuccess ? 'success' : 'default'}
-        />
-        {passwordSuccess && (
-          <small style={{ color: '#3BB273' }}>надёжный пароль</small>
-        )}
-      </div>
-
-      <button class="button" type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Отправка...' : 'Отправить'}
+      <button class="button form__button" type="submit" disabled={isSubmitting}>
+        {isSubmitting ? 'отправка...' : 'отправить'}
       </button>
     </form>
   )

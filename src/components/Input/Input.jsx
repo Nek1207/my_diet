@@ -1,5 +1,5 @@
-import React, { useState, forwardRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, forwardRef } from 'react'
+import PropTypes from 'prop-types'
 import {
   FaUser,
   FaLock,
@@ -13,9 +13,9 @@ import {
   FaEyeSlash,
   FaCheckCircle,
   FaExclamationCircle,
-} from 'react-icons/fa';
+} from 'react-icons/fa'
 
-import "./../Input/Input.scss";
+import "./../Input/Input.scss"
 
 const iconMap = {
   login: <FaUser />,
@@ -26,7 +26,7 @@ const iconMap = {
   scale: <FaBalanceScale />,
   energy: <FaBolt />,
   target: <FaBullseye />,
-};
+}
 
 const Input = forwardRef(
   (
@@ -47,24 +47,19 @@ const Input = forwardRef(
     },
     ref
   ) => {
-    const [showPassword, setShowPassword] = useState(false);
-
-    const actualType = type === 'password' && showPassword ? 'text' : type;
-
+    const [showPassword, setShowPassword] = useState(false)
+    const actualType = type === 'password' && showPassword ? 'text' : type
     const togglePasswordVisibility = () => {
       setShowPassword((prev) => !prev);
-    };
-
+    }
     const renderLeftIcon = () => {
-      if (!leftIcon) return null;
+      if (!leftIcon) return null
       if (typeof leftIcon === 'string' && iconMap[leftIcon]) {
-        return iconMap[leftIcon];
+        return iconMap[leftIcon]
       }
-      return leftIcon;
-    };
-
-    const leftIconElement = renderLeftIcon();
-
+      return leftIcon
+    }
+    const leftIconElement = renderLeftIcon()
     // Формируем классы для обертки и инпута
     const wrapperClasses = [
       'input-wrapper',
@@ -72,22 +67,19 @@ const Input = forwardRef(
       wrapperClassName,
     ]
       .filter(Boolean)
-      .join(' ');
-
+      .join(' ')
     const inputClasses = [
       'input-field',
       status !== 'default' && `input-field--${status}`,
       className,
     ]
       .filter(Boolean)
-      .join(' ');
-
+      .join(' ')
     return (
       <div className={wrapperClasses}>
         {leftIconElement && (
           <span className="input-icon left-icon">{leftIconElement}</span>
         )}
-
         <input
           ref={ref}
           id={id}
@@ -101,7 +93,6 @@ const Input = forwardRef(
           onChange={onChange}
           {...rest}
         />
-
         {/* Иконка статуса справа (success/error) */}
         {status === 'success' && (
           <span className="status-icon status-icon--success">
@@ -113,9 +104,8 @@ const Input = forwardRef(
             <FaExclamationCircle />
           </span>
         )}
-
         {/* Кнопка показа/скрытия пароля (только если не success/error, чтобы не накладывались иконки) */}
-        {type === 'password' && status === 'default' && (
+        {type === 'password' && (
           <button
             type="button"
             className="password-toggle"
@@ -130,9 +120,7 @@ const Input = forwardRef(
     );
   }
 );
-
-Input.displayName = 'Input';
-
+Input.displayName = 'Input'
 Input.propTypes = {
   type: PropTypes.string,
   id: PropTypes.string,
@@ -146,6 +134,6 @@ Input.propTypes = {
   leftIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   onChange: PropTypes.func,
   status: PropTypes.oneOf(['default', 'error', 'success']),
-};
+}
 
-export default Input;
+export default Input

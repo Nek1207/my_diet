@@ -64,59 +64,67 @@
 }
 
 .bg-white {
-  background-color: #FAFAFA;
+  background-color: #FAFAFA !important;
 }
 
 .bg-black {
-  background-color: #2F2F2F;
+  background-color: #2F2F2F !important;
 }
 
 .bg-gray {
-  background-color: #777777;
+  background-color: #777777 !important;
 }
 
 .bg-lightgray {
-  background-color: #DFDFDF;
+  background-color: #DFDFDF !important;
 }
 
 .bg-green {
-  background-color: #3BB273;
+  background-color: #3BB273 !important;
 }
 
 .bg-darkgreen {
-  background-color: #247D4E;
+  background-color: #247D4E !important;
 }
 
 .bg-lightgreen {
-  background-color: #9AE6BE;
+  background-color: #9AE6BE !important;
 }
 
 .bg-lightergreen {
-  background-color: #ADE3C7;
+  background-color: #ADE3C7 !important;
 }
 
 .bg-proteins {
-  background-color: #2D9CDB;
+  background-color: #2D9CDB !important;
 }
 
 .bg-fats {
-  background-color: #EB5757;
+  background-color: #EB5757 !important;
 }
 
 .bg-carbs {
-  background-color: #E9C46A;
+  background-color: #E9C46A !important;
 }
 
 .bg-carrot {
-  background-color: #E76F51;
+  background-color: #E76F51 !important;
 }
 
 .bg-darkcarrot {
-  background-color: #B85018;
+  background-color: #B85018 !important;
 }
 
 .bg-danger {
-  background-color: #FF595E;
+  background-color: #FF595E !important;
+}
+
+.f-unbounded {
+  font-family: "Unbounded", sans-serif !important;
+}
+
+.f-montserrat {
+  font-family: "Montserrat", sans-serif !important;
 }
 
 .heading1 {
@@ -169,7 +177,7 @@
 
 .numbers {
   text-align: start;
-  font-size: clamp(30px, 10vw, 150px);
+  font-size: clamp(30px, 10vw, 120px);
   color: #2F2F2F;
   font-weight: 700;
   font-family: "Unbounded", sans-serif;
@@ -283,6 +291,134 @@
   rotate: 345deg;
 }
 
+.mt0 {
+  margin-top: 0rem;
+}
+
+.mt1 {
+  margin-top: 1rem;
+}
+
+.mt2 {
+  margin-top: 2rem;
+}
+
+.mt3 {
+  margin-top: 3rem;
+}
+
+.mt4 {
+  margin-top: 4rem;
+}
+
+.mt5 {
+  margin-top: 5rem;
+}
+
+.mt6 {
+  margin-top: 6rem;
+}
+
+.mt7 {
+  margin-top: 7rem;
+}
+
+.mt8 {
+  margin-top: 8rem;
+}
+
+.mt9 {
+  margin-top: 9rem;
+}
+
+.mt10 {
+  margin-top: 10rem;
+}
+
+.mt11 {
+  margin-top: 11rem;
+}
+
+.mt12 {
+  margin-top: 12rem;
+}
+
+.mt13 {
+  margin-top: 13rem;
+}
+
+.mt14 {
+  margin-top: 14rem;
+}
+
+.mt15 {
+  margin-top: 15rem;
+}
+
+.pt0 {
+  padding-top: 0rem;
+}
+
+.pt1 {
+  padding-top: 1rem;
+}
+
+.pt2 {
+  padding-top: 2rem;
+}
+
+.pt3 {
+  padding-top: 3rem;
+}
+
+.pt4 {
+  padding-top: 4rem;
+}
+
+.pt5 {
+  padding-top: 5rem;
+}
+
+.pt6 {
+  padding-top: 6rem;
+}
+
+.pt7 {
+  padding-top: 7rem;
+}
+
+.pt8 {
+  padding-top: 8rem;
+}
+
+.pt9 {
+  padding-top: 9rem;
+}
+
+.pt10 {
+  padding-top: 10rem;
+}
+
+.pt11 {
+  padding-top: 11rem;
+}
+
+.pt12 {
+  padding-top: 12rem;
+}
+
+.pt13 {
+  padding-top: 13rem;
+}
+
+.pt14 {
+  padding-top: 14rem;
+}
+
+.pt15 {
+  padding-top: 15rem;
+}
+
 .smoothscrolling.visible {
   opacity: 1;
   transform: translateY(0);
@@ -369,7 +505,7 @@ body {
   list-style: none;
 }
 
-img {
+img, small, div, button, input {
   user-select: none;
 }
 
@@ -448,23 +584,6 @@ button {
   font-size: clamp(10px, 3vw, 24px);
 }
 
-input {
-  border-radius: clamp(5px, 3vw, 15px);
-  max-width: 600px;
-  width: 600px;
-  min-width: 600px;
-  min-height: 50px;
-  height: auto;
-  padding: 0.5rem;
-  font-weight: 700;
-  font-size: clamp(8px, 3vw, 20px);
-}
-
-input::placeholder {
-  padding-left: 2rem;
-  margin-left: 2rem;
-}
-
 :where([fill]:not([fill=none],
 [fill^=url])) {
   fill: currentColor;
@@ -485,7 +604,6 @@ svg * {
 
 section {
   z-index: 1000;
-  position: relative;
   min-height: 200px;
   height: auto;
   max-width: 85vw;
@@ -585,8 +703,8 @@ section {
   display: block;
   position: absolute;
   z-index: 9999;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.3);
@@ -603,6 +721,31 @@ section {
     transform: translateY(0);
   }
 }
+.leafs {
+  display: block;
+  position: fixed;
+  z-index: 10000;
+  top: -5vh;
+  right: -47vw;
+  max-width: 100vw;
+  width: 100vw;
+  min-width: 100vw;
+  min-height: 100vh;
+  height: auto;
+  rotate: 270deg;
+}
+@media (max-width: 1200px) {
+  .leafs {
+    top: -60vh;
+    right: -95vw;
+    max-width: 200vw;
+    width: 200vw;
+    min-width: 200vw;
+    min-height: 200vh;
+    height: auto;
+  }
+}
+
 .footer {
   margin-top: -2rem;
   background: #3BB273;
@@ -686,6 +829,11 @@ section {
   max-width: 100%;
   width: 100%;
   min-width: 100%;
+}
+@media (max-width: 880px) {
+  .footer__links__title {
+    font-size: clamp(10px, 3vw, 30px);
+  }
 }
 .footer__titles {
   max-width: 40%;

@@ -2,7 +2,7 @@
 
 ## используемые технологии
 
-HTML, CSS, SCSS, JS, React, React Router DOM, React Icons, JSON
+HTML, CSS, SCSS, JS, React, React Router DOM, React Icons, JSON, Git, GitHub, npm
 
 ## макет web-приложения
 
@@ -10,7 +10,10 @@ Figma - https://www.figma.com/design/pcEfQOIN4pnLpEZDlCMoGb/%D0%94%D0%B8%D0%BF%D
 
 ## хронология версий
 
-8 апреля - v0.2.8
-7 апреля - v0.2.2
-6 апреля - v0.1.0
-2 апреля - v0.0.4
+### 11 апреля - v0.3.1
+### 10 апреля - v0.2.9
+### 9 апреля - v0.2.9
+### 8 апреля - v0.2.8
+### 7 апреля - v0.2.2
+### 6 апреля - v0.1.0
+### 2 апреля - v0.0.4

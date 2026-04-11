@@ -41,7 +41,7 @@ body {
 :where(ul[class]) {
   list-style: none;
 }
-img {
+img, small, div, button, input {
   user-select: none;
 }
 h1, h2, h3, h4, h5, h6, p, a, li {
@@ -103,18 +103,18 @@ button {
   font-weight: 700;
   font-size: $button;
 }
-input {
-  border-radius: $br3;
-  @include width(600px);
-  @include height(50px);
-  padding: .5rem;
-  font-weight: 700;
-  font-size: $input;
-}
-input::placeholder {
-  padding-left: 2rem;
-  margin-left: 2rem;
-}
+// input {
+//   border-radius: $br3;
+//   @include width(600px);
+//   @include height(50px);
+//   padding: .5rem;
+//   font-weight: 700;
+//   font-size: $input;
+// }
+// input::placeholder {
+//   padding-left: 2rem;
+//   margin-left: 2rem;
+// }
 :where([fill]:not(
   [fill="none"],
   [fill^="url"]
@@ -133,7 +133,6 @@ svg * {
 }
 section {
   z-index: 1000;
-  position: relative;
   @include height(200px);
   @include width(85vw);
   @include flex(column, start, center, wrap, 1rem);
@@ -188,7 +187,6 @@ section {
     @include height(35px);
   }
 }
-
 .overlay {
   display: none;
 }
@@ -197,8 +195,8 @@ section {
   display: block;
   position: absolute;
   z-index: 9999;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.3);
@@ -214,5 +212,24 @@ section {
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+.leafs {
+  display: block;
+  position: fixed;
+  z-index: 10000;
+  top: -5vh;
+  right: -47vw;
+  @include width(100vw);
+  @include height(100vh);
+  rotate: 270deg;
+
+  @media (max-width: 1200px) {
+    top: -60vh;
+    right: -95vw;
+    @include width(200vw);
+    @include height(200vh);
+
   }
 }

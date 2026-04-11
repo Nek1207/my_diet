@@ -9,15 +9,16 @@
 
   &:hover {
     cursor: pointer;
-    color: $carrot;
     background: none;
     border: 3px solid $carrot;
     color: $carrot;
     transition: all .25s;
   }
   &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+    background: $darkcarrot;
+    border: 3px solid $darkcarrot;
+    color: $lightgray;
+    cursor: pointer;
   }
 }
 
@@ -96,6 +97,41 @@
     background: none;
     border: 3px solid $white;
     transition: all .25s;
+  }
+
+}
+
+.button--backtomain {
+  @include width(300px);
+  @include height(75px);
+  cursor: pointer;
+  color: $white;
+  background: $carrot;
+  font-size: $header;
+  border-radius: $br4;
+  border: 5px solid $carrot;
+  transition: all .25s;
+
+  &:hover {
+    cursor: pointer;
+    color: $carrot;
+    background: none;
+    border: 3px solid $carrot;
+    transition: all .25s;
+  }
+  @media (max-width: 1000px) {
+    @include width(250px);
+    @include height(65px);
+  }
+  @media (max-width: 800px) {
+    @include width(175px);
+    @include height(40px);
+    font-size: $header2;
+  }
+  @media (max-width: 500px) {
+    @include width(135px);
+    @include height(35px);
+    font-size: $desc1;
   }
 
 }

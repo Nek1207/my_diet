@@ -92,7 +92,7 @@
   &__rightnow {
     margin-top: -1.5rem;
     @include width(100%);
-    @include height(300px);
+    @include height(200px);
     @include flex(column, center, center, nowrap, 3rem);
     background: $green;
 
@@ -100,15 +100,15 @@
       animation: leafAnimation 2s 1s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
       @include width(75px);
       position: absolute;
-      top: 5vh;
-      left: 10vw;
+      top: 0vh;
+      right: 35vw;
     }
     &__image2 {
       animation: leafAnimation 2s 2s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
       @include width(75px);
       position: absolute;
-      top: 5vh;
-      right: 10vw;
+      top: 0vh;
+      left: 35vw;
     }
 
     @media (max-width: 900px) {

@@ -1,0 +1,151 @@
+@import "../../styles";
+
+.notfound {
+  overflow-y: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $green;
+  @include flex(row, space-between, start, nowrap, 0rem);
+  @include width(100%);
+  @include height(100%);
+
+  @media (max-width: 1380px) {
+    @include flex(column, start, start, nowrap, 0rem);
+  }
+
+  &__logo {
+    background: $white;
+    @include height(100vh);
+    max-height: 100vh;
+
+    @media (max-width: 1450px) {
+      display: none;
+    }
+
+    &-background {
+      @include width(100%);
+      @include height(100vh);
+      max-height: 100vh;
+    }
+    &-numbers {
+      position: absolute;
+      top: 40vh;
+      left: 5vw;
+      font-size: $numbers;
+      color: $darkgreen;
+    }
+  }
+  &__texts {
+    background: $green;
+    @include width(50%);
+    @include height(100vh);
+    padding-left: 4rem;
+    z-index: 10;
+    @include flex(column, center, center, nowrap, 1rem);
+
+    @media (max-width: 1000px) {
+      @include width(80%);
+      margin-top: 5vh;
+      @include flex(column, start, center, nowrap, 1rem);
+    }
+    &-inner {
+      // margin-top: 5rem;
+      @include width(100%);
+      @include flex(column, start, start, nowrap, 0rem);
+    }
+    &-number {
+      @include width(400px);
+      @include height(200px);
+      background: $white;
+      color: $green;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: 10rem;
+      line-height: 1.25;
+      padding: 0 auto;
+      border-radius: $br1;
+      text-align: center;
+
+      @media (max-width: 1200px) {
+        line-height: 1;
+        @include width(300px);
+        @include height(175px);
+        font-size: 8rem;
+        @include flex(row, center, center, nowrap, 0rem);
+      }
+      @media (max-width: 1000px) {
+        @include width(250px);
+        @include height(150px);
+        font-size: 6rem;
+        border-radius: $br2;
+      }
+      @media (max-width: 700px) {
+        @include width(200px);
+        @include height(100px);
+        font-size: 4rem;
+        border-radius: $br2;
+      }
+      @media (max-width: 550px) {
+        @include width(125px);
+        @include height(75px);
+        font-size: 2.5rem;
+        border-radius: $br3;
+      }
+    }
+    &-button {
+      @include width(100%);
+      z-index: 200000 !important;
+    }
+  }
+
+  
+}
+
+.branch__notfound {
+  @include width(40% !important);
+  transform: translateX(150%) !important;
+  position: absolute !important;
+  z-index: 1 !important;
+  top: 55vh !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+
+  @media (max-width: 1450px) {
+    left: 0 !important;
+    rotate: 180deg !important;
+    transform: translateX(0% !important);
+  }
+  @media (max-width: 1000px) {
+    top: 45vh !important;
+    @include width(75% !important);
+  }
+  @media (max-width: 900px) {
+    top: 35vh !important;
+    @include width(65% !important);
+  }
+  @media (max-width: 700px) {
+    top: 35vh !important;
+    @include width(65% !important);
+  }
+  @media (max-width: 550px) {
+    top: 30vh !important;
+    @include width(90% !important);
+  }
+}
+
+@media (max-width: 900px) {
+  .mt4 {
+    margin-top: 2.5rem;
+  }
+  .mt15 {
+    margin-top: 10rem;
+  }
+  .desc3 {
+    font-size: .75rem;
+  }
+}
+
+.desc3 {
+  @include width(90%);
+}
