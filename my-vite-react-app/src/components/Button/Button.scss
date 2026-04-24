@@ -1,0 +1,140 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mix;
+@use '../../styles/index' as *;
+
+.button {
+  cursor: pointer;
+  color: vars.$white;
+  background: vars.$carrot;
+  border: 3px solid vars.$carrot;
+  transition: all .25s;
+
+  &:hover {
+    cursor: pointer;
+    background: none;
+    border: 3px solid vars.$carrot;
+    color: vars.$carrot;
+    transition: all .25s;
+  }
+  &:disabled {
+    background: vars.$darkcarrot;
+    border: 3px solid vars.$darkcarrot;
+    color: vars.$lightgray;
+    cursor: pointer;
+  }
+}
+
+.button--default {
+  cursor: pointer;
+  color: vars.$white;
+  background: vars.$carrot;
+  border: 3px solid vars.$carrot;
+  transition: all .25s;
+}
+.button--disabled {
+  cursor: not-allowed;
+  color: vars.$lightgray;
+  background: vars.$darkcarrot;
+  border: 3px solid vars.$darkcarrot;
+  transition: all .25s;
+
+  &:hover {
+    cursor: not-allowed;
+    color: vars.$lightgray;
+    background: vars.$darkcarrot;
+    border: 3px solid vars.$darkcarrot;
+    transition: all .25s;
+  }
+
+}
+
+.button--error {
+  cursor: pointer;
+  color: vars.$white;
+  background: vars.$danger;
+  border: 3px solid vars.$danger;
+  transition: all .25s;
+
+  &:hover {
+    cursor: pointer;
+    color: vars.$danger;
+    background: none;
+    border: 3px solid vars.$danger;
+    transition: all .25s;
+  }
+
+}
+
+.button--success {
+  cursor: pointer;
+  color: vars.$white;
+  background: vars.$green;
+  border: 3px solid vars.$green;
+  transition: all .25s;
+
+  &:hover {
+    cursor: pointer;
+    color: vars.$green;
+    background: none;
+    border: 3px solid vars.$green;
+    transition: all .25s;
+  }
+
+}
+
+.button--header {
+  @include mix.width(150px);
+  @include mix.height(35px);
+  cursor: pointer;
+  color: vars.$darkgreen;
+  background: vars.$white;
+  font-size: vars.$button2;
+  border-radius: vars.$br4;
+  border: 3px solid vars.$white;
+  transition: all .25s;
+
+  &:hover {
+    cursor: pointer;
+    color: vars.$white;
+    background: none;
+    border: 3px solid vars.$white;
+    transition: all .25s;
+  }
+
+}
+
+.button--backtomain {
+  @include mix.width(300px);
+  @include mix.height(75px);
+  cursor: pointer;
+  color: vars.$white;
+  background: vars.$carrot;
+  font-size: vars.$header;
+  border-radius: vars.$br4;
+  border: 5px solid vars.$carrot;
+  transition: all .25s;
+
+  &:hover {
+    cursor: pointer;
+    color: vars.$carrot;
+    background: none;
+    border: 3px solid vars.$carrot;
+    transition: all .25s;
+  }
+  @media (max-width: 1000px) {
+    @include mix.width(250px);
+    @include mix.height(65px);
+  }
+  @media (max-width: 800px) {
+    @include mix.width(175px);
+    @include mix.height(40px);
+    font-size: vars.$header2;
+  }
+  @media (max-width: 500px) {
+    @include mix.width(135px);
+    @include mix.height(35px);
+    font-size: vars.$desc1;
+  }
+
+  
+}

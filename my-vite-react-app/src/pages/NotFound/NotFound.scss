@@ -1,0 +1,153 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mix;
+@use '../../styles/index' as *;
+
+.notfound {
+  overflow-y: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: vars.$green;
+  @include mix.flex(row, space-between, start, nowrap, 0rem);
+  @include mix.width(100%);
+  @include mix.height(100%);
+
+  @media (max-width: 1380px) {
+    @include mix.flex(column, start, start, nowrap, 0rem);
+  }
+
+  &__logo {
+    background: vars.$white;
+    @include mix.height(100vh);
+    max-height: 100vh;
+
+    @media (max-width: 1450px) {
+      display: none;
+    }
+
+    &-background {
+      @include mix.width(100%);
+      @include mix.height(100vh);
+      max-height: 100vh;
+    }
+    &-numbers {
+      position: absolute;
+      top: 40vh;
+      left: 5vw;
+      font-size: vars.$numbers;
+      color: vars.$darkgreen;
+    }
+  }
+  &__texts {
+    background: vars.$green;
+    @include mix.width(50%);
+    @include mix.height(100vh);
+    padding-left: 4rem;
+    z-index: 10;
+    @include mix.flex(column, center, center, nowrap, 1rem);
+
+    @media (max-width: 1000px) {
+      @include mix.width(80%);
+      margin-top: 5vh;
+      @include mix.flex(column, start, center, nowrap, 1rem);
+    }
+    &-inner {
+      // margin-top: 5rem;
+      @include mix.width(100%);
+      @include mix.flex(column, start, start, nowrap, 0rem);
+    }
+    &-number {
+      @include mix.width(400px);
+      @include mix.height(200px);
+      background: vars.$white;
+      color: vars.$green;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: 10rem;
+      line-height: 1.25;
+      padding: 0 auto;
+      border-radius: vars.$br1;
+      text-align: center;
+
+      @media (max-width: 1200px) {
+        line-height: 1;
+        @include mix.width(300px);
+        @include mix.height(175px);
+        font-size: 8rem;
+        @include mix.flex(row, center, center, nowrap, 0rem);
+      }
+      @media (max-width: 1000px) {
+        @include mix.width(250px);
+        @include mix.height(150px);
+        font-size: 6rem;
+        border-radius: vars.$br2;
+      }
+      @media (max-width: 700px) {
+        @include mix.width(200px);
+        @include mix.height(100px);
+        font-size: 4rem;
+        border-radius: vars.$br2;
+      }
+      @media (max-width: 550px) {
+        @include mix.width(125px);
+        @include mix.height(75px);
+        font-size: 2.5rem;
+        border-radius: vars.$br3;
+      }
+    }
+    &-button {
+      @include mix.width(100%);
+      z-index: 200000 !important;
+    }
+  }
+
+  
+}
+
+.branch__notfound {
+  @include mix.width(40% !important);
+  transform: translateX(150%) !important;
+  position: absolute !important;
+  z-index: 1 !important;
+  top: 55vh !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+
+  @media (max-width: 1450px) {
+    left: 0 !important;
+    rotate: 180deg !important;
+    transform: translateX(0% !important);
+  }
+  @media (max-width: 1000px) {
+    top: 45vh !important;
+    @include mix.width(75% !important);
+  }
+  @media (max-width: 900px) {
+    top: 35vh !important;
+    @include mix.width(65% !important);
+  }
+  @media (max-width: 700px) {
+    top: 35vh !important;
+    @include mix.width(65% !important);
+  }
+  @media (max-width: 550px) {
+    top: 30vh !important;
+    @include mix.width(90% !important);
+  }
+}
+
+@media (max-width: 900px) {
+  .mt4 {
+    margin-top: 2.5rem;
+  }
+  .mt15 {
+    margin-top: 10rem;
+  }
+  .desc3 {
+    font-size: .75rem;
+  }
+}
+
+.desc3 {
+  @include mix.width(90%);
+}

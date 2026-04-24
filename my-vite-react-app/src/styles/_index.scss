@@ -1,0 +1,211 @@
+@use 'fonts' as *;
+@use 'variables' as *;
+@use 'mixins' as mix;
+@use 'classes' as *;
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    transition: all .4s;
+}
+*::-webkit-scrollbar {
+  display: none; /* Скрывает полосу прокрутки */
+}
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+:where( h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+body {
+  overflow-x: hidden;
+}
+:where(dd[class]) {
+  margin-left: 0;
+}
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+:where(ul[class]) {
+  list-style: none;
+}
+img, small, div, button, input {
+  user-select: none;
+}
+h1, h2, h3, h4, h5, h6, p, a, li {
+  font-family: "Unbounded", sans-serif;
+  text-decoration: none;
+  list-style: none;
+  list-style-type: none;
+  color: $black;
+  font-weight: 600;
+  font-size: 20px;
+  user-select: none;
+}
+:where(address[class]) {
+  font-style: normal;
+}
+p {
+  margin-block: 0;
+}
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+input,
+textarea,
+select {
+  font-family: "Montserrat", sans-serif;
+}
+button {
+  font-family: "Unbounded", sans-serif;
+}
+html {
+  height: 100%;
+  scrollbar-gutter: stable;
+}
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100%;
+  line-height: 1.5;
+}
+a:where([class]) {
+  display: inline-flex;
+}
+button,
+label {
+  cursor: pointer;
+}
+button {
+  border-radius: $br3;
+  @include mix.width(250px);
+  @include mix.height(50px);
+  font-weight: 700;
+  font-size: $button;
+}
+:where([fill]:not(
+  [fill="none"],
+  [fill^="url"]
+)) {
+  fill: currentColor;
+}
+:where([stroke]:not([stroke="none"], [stroke^="url"])) {
+  stroke: currentColor;
+}
+svg * {
+  transition-property: fill, stroke;
+}
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+section {
+  z-index: 1000;
+  @include mix.height(200px);
+  @include mix.width(85vw);
+  @include mix.flex(column, start, center, wrap, 1rem);
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.waves {
+  @include mix.width(100%);
+}
+.branch {
+  display: block;
+  @include mix.width(100vw);
+  @include mix.height(50px);
+  position: relative;
+  top: 0;
+  left: 0;
+  &__image {
+    @include mix.width(100%);
+    @include mix.height(100%);
+  }
+}
+.container {
+  position: relative;
+  @include mix.flex(column, start, center, nowrap, 1rem);
+  @include mix.width(100vw);
+  min-height: 100vh;
+  height: auto;
+  background: $white;
+  color: $black;
+}
+.create-account {
+  @include mix.width(400px);
+  @include mix.height(65px);
+
+  @media (max-width: 750px) {
+    @include mix.width(300px);
+    @include mix.height(50px);
+  }
+  @media (max-width: 500px) {
+    @include mix.width(225px);
+    @include mix.height(35px);
+  }
+}
+.overlay {
+  display: none;
+}
+.overlay.open {
+  display: block;
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+
+}
+@keyframes leafAnimation {
+  0% {
+    transform: translateY(0);    
+  }
+  50% {
+    transform: translateY(-0.85vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.leafs {
+  display: block;
+  position: fixed;
+  z-index: 10000;
+  top: -5vh;
+  right: -47vw;
+  @include mix.width(100vw);
+  @include mix.height(100vh);
+  rotate: 270deg;
+  @media (max-width: 1200px) {
+    top: -60vh;
+    right: -95vw;
+    @include mix.width(200vw);
+    @include mix.height(200vh);
+  }
+}
+
+

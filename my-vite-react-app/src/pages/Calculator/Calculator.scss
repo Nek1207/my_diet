@@ -1,0 +1,52 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mix;
+@use '../../styles/index' as *;
+
+.calculator {
+  position: relative;
+  z-index: 1000;
+  overflow: visible;
+  margin-top: 15vh;
+  @include mix.flex(column, start, center, nowrap, 1rem);
+  @include mix.width(100%);
+  @include mix.height(80vh);
+  padding: 0;
+
+  &__form {
+    margin-top: 5vh;
+    @include mix.width(55%);
+    @include mix.height(40vh);
+
+    @media (max-width: 1200px) {
+      @include mix.width(60%);
+    }
+    @media (max-width: 800px) {
+      @include mix.width(85%);
+    }
+
+
+  }
+}
+
+.branch__calculator, .branch__calculator2 {
+  display: block;
+  position: absolute;
+  top: 0;
+  @include mix.height(2rem);
+  z-index: 100;
+  @media (max-width: 900px) {
+    display: none;
+  }
+
+}
+.branch__calculator {
+  left: 1.5vw;
+}
+.branch__calculator2 {
+  right: 1.5vw;
+}
+.branch__image-calculator {
+  display: block;
+  @include mix.width(17.5vh);
+
+}
