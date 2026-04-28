@@ -34,7 +34,7 @@ const Calculator = () => {
       <Header />
       
       <div className="branch__calculator" ref={el => branchesRefs.current[0] = el}><img className="branch__image-calculator" src={branch} alt="branch"/></div>
-      <div className="branch__calculator2" ref={el => branchesRefs.current[0] = el}><img className="branch__image-calculator" src={branch2} alt="branch"/></div>
+      <div className="branch__calculator2" ref={el => branchesRefs.current[1] = el}><img className="branch__image-calculator" src={branch2} alt="branch"/></div>
       <section className="calculator">
         <h3 ref={el => sectionRefs.current[0] = el} className="subheading c-green lh1 smoothscrolling hidden">измените частичку жизни</h3>
         <h3 ref={el => sectionRefs.current[1] = el} className="subheading c-carrot lh1 smoothscrolling hidden">за 30 секунд</h3>

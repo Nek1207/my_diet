@@ -107,7 +107,7 @@
 
   &__rules {
     margin-top: 5vh;
-    @include mix.flex(row, center, start, nowrap, 3rem);
+    @include mix.flex(row, center, start, nowrap, 1rem);
     @include mix.width(100%);
     @include mix.height(20vh);
 
@@ -129,9 +129,11 @@
         left: 0;
         background: vars.$darkgreen;
         text-align: center;
-        @include mix.width(50%);
+        @include mix.width(35%);
         padding: 1rem;
-        border-radius: vars.$br2;
+        // border-radius: vars.$br2;
+        border-top-right-radius: 50%;
+        border-bottom-left-radius: 50%;
         line-height: 1;
         color: vars.$white;
         font-size: vars.$bignumbers;
@@ -194,6 +196,34 @@
         line-height: 1.5;
       }
     }
+  }
+}
+
+
+.results {
+  &__bmi {
+    margin-top: 5vh;
+  }
+  &__bmi, &__water {
+    &-inner {
+      @include mix.flex(row, start, start, nowrap, 1rem);
+    }
+    @include mix.width(60%);
+    @include mix.flex(column, start, start, nowrap, .5rem);
+  }
+  &__macros {
+    @include mix.width(60%);
+    &-inner {
+      @include mix.flex(column, start, start, nowrap, 1rem);
+    }
+  }
+}
+
+.macros {
+  @include mix.width(100%);
+  @include mix.flex(row, space-between, center, nowrap, 0.5rem);
+  &-item {
+    @include mix.flex(row, start, start, nowrap, 1rem);
   }
 }
 
@@ -262,5 +292,29 @@
     @include mix.width(125px);
     @include mix.height(30px);
     font-size: vars.$desc25;
+  }
+}
+
+// Forms.scss - минимальная версия без конфликтов
+.animate-to-scroll {
+  transition: all 0.6s ease-out;
+}
+
+.animate-to-scroll:not(.visible) {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.animate-to-scroll.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+@media (max-width: 900px) {
+  .desc2 {
+    font-size: vars.$desc1;
+  }
+  .results__bmi, .results__water, .results__macros {
+    @include mix.width(90%);
   }
 }

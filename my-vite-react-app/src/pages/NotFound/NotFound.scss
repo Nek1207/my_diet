@@ -4,22 +4,24 @@
 
 .notfound {
   overflow-y: hidden;
-  position: absolute;
+  position: relative; // Меняем с absolute на relative
   top: 0;
   left: 0;
+  z-index: 10;
   background: vars.$green;
-  @include mix.flex(row, space-between, start, nowrap, 0rem);
-  @include mix.width(100%);
-  @include mix.height(100%);
+  @include mix.flex(row, center, start, nowrap, 0rem);
+  @include mix.width(100vw);
+  min-height: 100vh; // Меняем height на min-height
 
   @media (max-width: 1380px) {
-    @include mix.flex(column, start, start, nowrap, 0rem);
+    @include mix.flex(column, center, start, nowrap, 0rem);
   }
 
   &__logo {
     background: vars.$white;
-    @include mix.height(100vh);
-    max-height: 100vh;
+    min-height: 100vh; // Меняем на min-height
+    position: relative;
+    z-index: 5;
 
     @media (max-width: 1450px) {
       display: none;
@@ -27,35 +29,42 @@
 
     &-background {
       @include mix.width(100%);
-      @include mix.height(100vh);
-      max-height: 100vh;
+      min-height: 100vh;
     }
+    
     &-numbers {
       position: absolute;
       top: 40vh;
       left: 5vw;
       font-size: vars.$numbers;
       color: vars.$darkgreen;
+      pointer-events: none; // Чтобы не перехватывал клики
     }
   }
+  
   &__texts {
     background: vars.$green;
     @include mix.width(50%);
-    @include mix.height(100vh);
+    min-height: 100vh;
     padding-left: 4rem;
-    z-index: 10;
-    @include mix.flex(column, center, center, nowrap, 1rem);
+    z-index: 20 !important; // Поднимаем выше
+    @include mix.flex(column, space-around, start, nowrap, 1rem);
+    position: relative;
 
     @media (max-width: 1000px) {
       @include mix.width(80%);
       margin-top: 5vh;
-      @include mix.flex(column, start, center, nowrap, 1rem);
+      @include mix.flex(column, start, start, nowrap, 1rem);
+      z-index: 30 !important;
     }
+    
     &-inner {
-      // margin-top: 5rem;
       @include mix.width(100%);
       @include mix.flex(column, start, start, nowrap, 0rem);
+      position: relative;
+      z-index: 25;
     }
+    
     &-number {
       @include mix.width(400px);
       @include mix.height(200px);
@@ -68,6 +77,8 @@
       padding: 0 auto;
       border-radius: vars.$br1;
       text-align: center;
+      position: relative;
+      z-index: 25;
 
       @media (max-width: 1200px) {
         line-height: 1;
@@ -95,23 +106,36 @@
         border-radius: vars.$br3;
       }
     }
+    
     &-button {
       @include mix.width(100%);
-      z-index: 200000 !important;
+      position: relative;
+      z-index: 100 !important;
+      
+      // КЛЮЧЕВОЕ: убеждаемся, что ссылка и кнопка кликабельны
+      a, button, .button {
+        position: relative;
+        z-index: 101 !important;
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        
+        &:hover, &:active, &:focus {
+          pointer-events: auto !important;
+        }
+      }
     }
   }
-
-  
 }
 
+// Ветки и декоративные элементы - отключаем pointer-events
 .branch__notfound {
   @include mix.width(40% !important);
   transform: translateX(150%) !important;
-  position: absolute !important;
+  position: fixed !important; // Меняем на fixed
   z-index: 1 !important;
   top: 55vh !important;
   right: 0 !important;
-  z-index: 1000 !important;
+  pointer-events: none !important; // КЛЮЧЕВОЕ: ветки не перехватывают клики
 
   @media (max-width: 1450px) {
     left: 0 !important;
@@ -134,8 +158,19 @@
     top: 30vh !important;
     @include mix.width(90% !important);
   }
+  
+  img {
+    pointer-events: none !important;
+  }
 }
 
+.leafs {
+  pointer-events: none !important; // Листья не перехватывают клики
+  position: relative;
+  z-index: 1;
+}
+
+// Стили для мобильных устройств
 @media (max-width: 900px) {
   .mt4 {
     margin-top: 2.5rem;
@@ -146,8 +181,47 @@
   .desc3 {
     font-size: .75rem;
   }
+  
+  .notfound {
+    &__texts {
+      padding: 2rem;
+      width: 100% !important;
+      align-items: start !important;
+      
+      &-inner {
+        align-items: start !important;
+        text-align: start;
+        gap: .5rem;
+      }
+      
+      &-button {
+        width: 90%;
+        margin: 0 auto;
+        
+        a {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 
 .desc3 {
   @include mix.width(90%);
+}
+
+.maxindex {
+  z-index: 10000 !important;
+}
+
+// Дополнительно: убеждаемся, что body не блокирует скролл
+body {
+  overflow-x: hidden;
+}
+
+// Если используется absolute позиционирование, исправляем
+.branch {
+  position: relative;
+  z-index: 1;
 }

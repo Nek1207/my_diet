@@ -183,6 +183,14 @@
   font-family: "Unbounded", sans-serif;
 }
 
+.inputtitle {
+  text-align: start;
+  font-size: clamp(14px, 3.5vw, 28px);
+  color: #777777;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}
+
 .t-center {
   text-align: center;
 }

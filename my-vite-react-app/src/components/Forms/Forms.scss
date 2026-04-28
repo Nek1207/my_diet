@@ -103,3 +103,12 @@ small {
     }
   }
 }
+
+.error-message {
+  font-family: "Montserrat", sans-serif;
+  font-size: vars.$desc3;
+  margin-top: .5rem;
+  display: block;
+  font-weight: 700;
+  color: vars.$danger;
+}

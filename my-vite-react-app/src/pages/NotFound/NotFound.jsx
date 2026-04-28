@@ -31,7 +31,7 @@ const NotFound = () => {
               <h3 className="subheading t-left c-white f-montserrat">что-то пошло не так</h3>
               <p className="desc3 mt4 t-left c-white f-montserrat">Вы можете вернуться на главную страницу, нажав на кнопку ниже</p>
             </div>
-            <div className="notfound__texts-button mt15">
+            <div className="notfound__texts-button mt7 maxindex">
               <NavLink to="/"><Button title="на главную" styles="backtomain" status="backtomain" specialStyles=""/></NavLink>
             </div>
           </div>

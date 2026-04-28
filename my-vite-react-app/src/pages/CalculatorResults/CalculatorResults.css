@@ -183,6 +183,14 @@
   font-family: "Unbounded", sans-serif;
 }
 
+.inputtitle {
+  text-align: start;
+  font-size: clamp(14px, 3.5vw, 28px);
+  color: #777777;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}
+
 .t-center {
   text-align: center;
 }
@@ -973,9 +981,9 @@ section {
   align-items: center;
   flex-wrap: nowrap;
   gap: 1rem;
-  max-width: 80%;
-  width: 80%;
-  min-width: 80%;
+  max-width: 100%;
+  width: 100%;
+  min-width: 100%;
   min-height: 80vh;
   height: auto;
   padding: 0;
@@ -1030,15 +1038,22 @@ section {
   align-items: start;
   flex-wrap: nowrap;
   gap: 1rem;
-  max-width: 70%;
-  width: 70%;
-  min-width: 70%;
+  max-width: 60%;
+  width: 60%;
+  min-width: 60%;
   min-height: 20vh;
   height: auto;
   background: #247D4E;
   color: #FAFAFA;
   border-radius: clamp(10px, 4vw, 25px);
   padding: 2rem;
+}
+@media (max-width: 900px) {
+  .calculator__more {
+    max-width: 80%;
+    width: 80%;
+    min-width: 80%;
+  }
 }
 @media (max-width: 850px) {
   .calculator__more {
@@ -1047,12 +1062,19 @@ section {
 }
 .calculator__more__title {
   margin-top: 10vh;
-  max-width: 70%;
-  width: 70%;
-  min-width: 70%;
+  max-width: 60%;
+  width: 60%;
+  min-width: 60%;
   color: #247D4E;
   text-align: left;
   font-size: clamp(10px, 2vw, 30px);
+}
+@media (max-width: 900px) {
+  .calculator__more__title {
+    max-width: 80%;
+    width: 80%;
+    min-width: 80%;
+  }
 }
 .calculator__more__formula {
   max-width: 100%;
@@ -1109,7 +1131,7 @@ section {
   justify-content: center;
   align-items: start;
   flex-wrap: nowrap;
-  gap: 3rem;
+  gap: 1rem;
   max-width: 100%;
   width: 100%;
   min-width: 100%;
@@ -1145,11 +1167,12 @@ section {
   left: 0;
   background: #247D4E;
   text-align: center;
-  max-width: 50%;
-  width: 50%;
-  min-width: 50%;
+  max-width: 35%;
+  width: 35%;
+  min-width: 35%;
   padding: 1rem;
-  border-radius: clamp(10px, 4vw, 25px);
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
   line-height: 1;
   color: #FAFAFA;
   font-size: clamp(50px, 10vw, 200px);
@@ -1232,6 +1255,62 @@ section {
   line-height: 1.5;
 }
 
+.results__bmi {
+  margin-top: 5vh;
+}
+.results__bmi-inner, .results__water-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+.results__bmi, .results__water {
+  max-width: 60%;
+  width: 60%;
+  min-width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+.results__macros {
+  max-width: 60%;
+  width: 60%;
+  min-width: 60%;
+}
+.results__macros-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+
+.macros {
+  max-width: 100%;
+  width: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+.macros-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+
 .branch__calculator, .branch__calculator2 {
   display: block;
   position: absolute;
@@ -1240,18 +1319,18 @@ section {
   height: auto;
   z-index: 100;
 }
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .branch__calculator, .branch__calculator2 {
     display: none;
   }
 }
 
 .branch__calculator {
-  left: 2.5vw;
+  left: 1.5vw;
 }
 
 .branch__calculator2 {
-  right: 2.5vw;
+  right: 1.5vw;
 }
 
 .branch__image-calculator {
@@ -1314,5 +1393,29 @@ section {
     min-height: 30px;
     height: auto;
     font-size: clamp(8px, 1.5vw, 24px);
+  }
+}
+.animate-to-scroll {
+  transition: all 0.6s ease-out;
+}
+
+.animate-to-scroll:not(.visible) {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.animate-to-scroll.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+@media (max-width: 900px) {
+  .desc2 {
+    font-size: clamp(14px, 2.5vw, 36px);
+  }
+  .results__bmi, .results__water, .results__macros {
+    max-width: 90%;
+    width: 90%;
+    min-width: 90%;
   }
 }/*# sourceMappingURL=CalculatorResults.css.map */

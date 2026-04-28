@@ -183,6 +183,14 @@
   font-family: "Unbounded", sans-serif;
 }
 
+.inputtitle {
+  text-align: start;
+  font-size: clamp(14px, 3.5vw, 28px);
+  color: #777777;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}
+
 .t-center {
   text-align: center;
 }
@@ -964,27 +972,27 @@ section {
 
 .notfound {
   overflow-y: hidden;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
+  z-index: 10;
   background: #3BB273;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: start;
   flex-wrap: nowrap;
   gap: 0rem;
-  max-width: 100%;
-  width: 100%;
-  min-width: 100%;
-  min-height: 100%;
-  height: auto;
+  max-width: 100vw;
+  width: 100vw;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 @media (max-width: 1380px) {
   .notfound {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: start;
     flex-wrap: nowrap;
     gap: 0rem;
@@ -993,8 +1001,8 @@ section {
 .notfound__logo {
   background: #FAFAFA;
   min-height: 100vh;
-  height: auto;
-  max-height: 100vh;
+  position: relative;
+  z-index: 5;
 }
 @media (max-width: 1450px) {
   .notfound__logo {
@@ -1006,8 +1014,6 @@ section {
   width: 100%;
   min-width: 100%;
   min-height: 100vh;
-  height: auto;
-  max-height: 100vh;
 }
 .notfound__logo-numbers {
   position: absolute;
@@ -1015,6 +1021,7 @@ section {
   left: 5vw;
   font-size: clamp(30px, 10vw, 120px);
   color: #247D4E;
+  pointer-events: none;
 }
 .notfound__texts {
   background: #3BB273;
@@ -1022,15 +1029,15 @@ section {
   width: 50%;
   min-width: 50%;
   min-height: 100vh;
-  height: auto;
   padding-left: 4rem;
-  z-index: 10;
+  z-index: 20 !important;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: start;
   flex-wrap: nowrap;
   gap: 1rem;
+  position: relative;
 }
 @media (max-width: 1000px) {
   .notfound__texts {
@@ -1041,9 +1048,10 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: center;
+    align-items: start;
     flex-wrap: nowrap;
     gap: 1rem;
+    z-index: 30 !important;
   }
 }
 .notfound__texts-inner {
@@ -1056,6 +1064,8 @@ section {
   align-items: start;
   flex-wrap: nowrap;
   gap: 0rem;
+  position: relative;
+  z-index: 25;
 }
 .notfound__texts-number {
   max-width: 400px;
@@ -1072,6 +1082,8 @@ section {
   padding: 0 auto;
   border-radius: clamp(10px, 5vw, 50px);
   text-align: center;
+  position: relative;
+  z-index: 25;
 }
 @media (max-width: 1200px) {
   .notfound__texts-number {
@@ -1127,7 +1139,17 @@ section {
   max-width: 100%;
   width: 100%;
   min-width: 100%;
-  z-index: 200000 !important;
+  position: relative;
+  z-index: 100 !important;
+}
+.notfound__texts-button a, .notfound__texts-button button, .notfound__texts-button .button {
+  position: relative;
+  z-index: 101 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+.notfound__texts-button a:hover, .notfound__texts-button a:active, .notfound__texts-button a:focus, .notfound__texts-button button:hover, .notfound__texts-button button:active, .notfound__texts-button button:focus, .notfound__texts-button .button:hover, .notfound__texts-button .button:active, .notfound__texts-button .button:focus {
+  pointer-events: auto !important;
 }
 
 .branch__notfound {
@@ -1135,11 +1157,11 @@ section {
   width: 40% !important;
   min-width: 40% !important;
   transform: translateX(150%) !important;
-  position: absolute !important;
+  position: fixed !important;
   z-index: 1 !important;
   top: 55vh !important;
   right: 0 !important;
-  z-index: 1000 !important;
+  pointer-events: none !important;
 }
 @media (max-width: 1450px) {
   .branch__notfound {
@@ -1180,6 +1202,15 @@ section {
     min-width: 90% !important;
   }
 }
+.branch__notfound img {
+  pointer-events: none !important;
+}
+
+.leafs {
+  pointer-events: none !important;
+  position: relative;
+  z-index: 1;
+}
 
 @media (max-width: 900px) {
   .mt4 {
@@ -1191,9 +1222,40 @@ section {
   .desc3 {
     font-size: 0.75rem;
   }
+  .notfound__texts {
+    padding: 2rem;
+    width: 100% !important;
+    align-items: start !important;
+  }
+  .notfound__texts-inner {
+    align-items: start !important;
+    text-align: start;
+    gap: 0.5rem;
+  }
+  .notfound__texts-button {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .notfound__texts-button a {
+    display: block;
+    width: 100%;
+  }
 }
 .desc3 {
   max-width: 90%;
   width: 90%;
   min-width: 90%;
+}
+
+.maxindex {
+  z-index: 10000 !important;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.branch {
+  position: relative;
+  z-index: 1;
 }/*# sourceMappingURL=NotFound.css.map */
