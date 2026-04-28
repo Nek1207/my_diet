@@ -5,6 +5,8 @@ import gh from "./../../assets/social/social_gh.svg"
 import tg from "./../../assets/social/social_tg.svg"
 import vk from "./../../assets/social/social_vk.svg"
 import yt from "./../../assets/social/social_yt.svg"
+import rt from "./../../assets/social/social_rt.svg"
+import mx from "./../../assets/social/social_mx.svg"
 import leafs from "./../../assets/content/cont_leafs.svg"
 const Footer = () => {
     return (
@@ -12,9 +14,9 @@ const Footer = () => {
             <div className="footer__links">
                 <div className="footer__links__images">
                     <a href="https://github.com/Nek1207" target="_blank"><img src={gh} alt="gh" className="footer__links__images-image" /></a>
-                    <a href="https://t.me/@project_nek_official" target="_blank"><img src={tg} alt="tg" className="footer__links__images-image" /></a>
+                    <a href="https://t.me/@project_nek_official" target="_blank"><img src={mx} alt="mx" className="footer__links__images-image" /></a>
                     <a href="https://vk.com/project_nek.official" target="_blank"><img src={vk} alt="vk" className="footer__links__images-image" /></a>
-                    <a href="https://www.youtube.com/@project_nek.official" target="_blank"><img src={yt} alt="yt" className="footer__links__images-image" /></a>
+                    <a href="https://www.youtube.com/@project_nek.official" target="_blank"><img src={rt} alt="rt" className="footer__links__images-image" /></a>
                 </div>
                 <h1 className="footer__links__title">© 2026, ASWACWAESACWA</h1>
             </div>

@@ -23,6 +23,8 @@ const Header = () => {
             <h2 className="header__titles-subtitle">подсчёт калорийности</h2>
           </div>
         </div>       
+           <div className="header__leaf"><img src={headerleaf} alt="headerleaf" /></div>
+      <div className="header__leaf2"><img src={headerleaf2} alt="headerleaf2" /></div>
           <div className={`menu ${isOpen ? 'active' : ''}`}>
             <Navbar />
           </div>
@@ -36,8 +38,7 @@ const Header = () => {
             </div>
           </div>
       </header>
-      <div className="header__leaf"><img src={headerleaf} alt="headerleaf" /></div>
-      <div className="header__leaf2"><img src={headerleaf2} alt="headerleaf2" /></div>
+      
       <div className={`overlay ${isOpen ? 'open' : ''}`} onClick={handleMenu}></div>
     </>
   )

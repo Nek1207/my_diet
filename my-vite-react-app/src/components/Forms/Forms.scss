@@ -27,6 +27,9 @@
             @include mix.flex(column, start, center, nowrap, 1rem);
         }
     }
+    &__button {
+        @include mix.width(45%);
+    }
 }
 
 

@@ -2,11 +2,15 @@ import React, { useState } from 'react'
 import useLocalStorage from "../../hooks/useLocalStorage"
 import Input from '../Input/Input'
 
+import { useScrollAnimation } from '../../smoothscrolling'
+import { useScrollAnimationL } from '../../smoothscrolling-l'
+
 import male from "../../assets/input/input_male.svg"
 import female from "../../assets/input/input_female.svg"
 import "./../Forms/Forms.scss"
 
 const CalculatorForm = () => {
+  const sectionRefs = useScrollAnimation()
   // const [login, setLogin] = useState('')
   // const [email, setEmail] = useState('')
   // const [password, setPassword] = useState('')
@@ -15,9 +19,9 @@ const CalculatorForm = () => {
   // const [loginSuccess, setLoginSuccess] = useState(false)
 
   const [gender, setGender] = useState("male")
-  const [age, setAge] = useState(0)
-  const [weight, setWeight] = useState(0)
-  const [scale, setScale] = useState(0)
+  const [age, setAge] = useState(null)
+  const [weight, setWeight] = useState(null)
+  const [scale, setScale] = useState(null)
   const [energy, setEnergy] = useState("")
   const [target, setTarget] = useState("")
 
@@ -73,10 +77,20 @@ const CalculatorForm = () => {
     setTarget(value)
   }
 
-  // const validateEmail = (value) => {
-  //   const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-  //   setEmailError(!isValid && value.length > 0);
-  // }
+  const validateEmail = (value) => {
+    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+    setEmailError(!isValid && value.length > 0)
+  }
+
+
+
+
+
+
+
+
+
+
   // const handleEmailChange = (e) => {
   //   const val = e.target.value;
   //   setEmail(val)
@@ -153,7 +167,7 @@ const clearLocalStorage = () => {
       <div className="form__items">        
         <div className="form__items-item">
         <p className="inputtitle">пол</p>
-        <div className="form__items-item-radio">
+        <div ref={el => sectionRefs.current[0] = el} className="smoothscrolling hidden form__items-item-radio">
           <label htmlFor="male" className={form.gender === 'male' ? 'checked-label' : ''}>
             <Input
               type="radio"
@@ -195,10 +209,10 @@ const clearLocalStorage = () => {
         </div>
       </div>
 
-        <div className="form__items-item">
+        <div ref={el => sectionRefs.current[1] = el} className="smoothscrolling hidden form__items-item">
           <h1 className="inputtitle">возраст</h1>
           <Input
-            type="number"
+            type="text"
             name="age"
             value={age}
             onChange={handleAgeChange}
@@ -209,10 +223,10 @@ const clearLocalStorage = () => {
             status={ageSuccess ? 'success' : 'default'}
           />
         </div>
-        <div className="form__items-item">
+        <div ref={el => sectionRefs.current[2] = el} className="smoothscrolling hidden form__items-item">
           <h1 className="inputtitle">вес</h1>
           <Input
-            type="number"
+            type="text"
             name="weight"
             value={weight}
             onChange={handleWeightChange}
@@ -223,10 +237,10 @@ const clearLocalStorage = () => {
             status={weightSuccess ? 'success' : 'default'}
           />
         </div>
-        <div className="form__items-item">
+        <div ref={el => sectionRefs.current[3] = el} className="smoothscrolling hidden form__items-item">
           <h1 className="inputtitle">рост</h1>
           <Input
-            type="number"
+            type="text"
             name="scale"
             value={scale}
             onChange={handleScaleChange}
@@ -237,7 +251,7 @@ const clearLocalStorage = () => {
             status={scaleSuccess ? 'success' : 'default'}
           />
         </div>
-        <div className="form__items-item">
+        <div ref={el => sectionRefs.current[4] = el} className="smoothscrolling hidden form__items-item">
           <h1 className="inputtitle">уровень активности</h1>
           <Input
             type="text"
@@ -251,7 +265,7 @@ const clearLocalStorage = () => {
             status={energySuccess ? 'success' : 'default'}
           />
         </div>
-        <div className="form__items-item">
+        <div ref={el => sectionRefs.current[5] = el} className="smoothscrolling hidden form__items-item">
           <h1 className="inputtitle">цель</h1>
           <Input
             type="text"
@@ -267,12 +281,12 @@ const clearLocalStorage = () => {
         </div>
 
       </div>
-      <div className="form__buttons">
+      <div  ref={el => sectionRefs.current[6] = el} className="smoothscrolling hidden form__buttons">
         <button className="button form__button" type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'отправка...' : 'отправить'}
+          {isSubmitting ? 'отправка данных...' : 'рассчитать'}
         </button>
         <button className="button form__button" type="button" onClick={handleClearStorage}>
-          очистить
+          очистить форму
         </button>
       </div>
       

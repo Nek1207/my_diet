@@ -1,5 +1,5 @@
-import React, { Suspense, useState } from 'react'
-import { Route, Routes, NavLink } from "react-router-dom"
+import React, { Suspense, useState, useEffect } from 'react'
+import { Route, Routes, NavLink, useLocation } from "react-router-dom"
 
 import logo from "./../src/assets/logotype/logotype_white.svg"
 
@@ -16,6 +16,16 @@ const CalculatorResults = React.lazy(() => import('./pages/CalculatorResults/Cal
 const NotFound = React.lazy(() => import('./pages/NotFound/NotFound'))
 const Forbidden = React.lazy(() => import('./pages/Forbidden/Forbidden'))
 
+function ScrollToTop() {
+    const { pathname } = useLocation();
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+    
+    return null;
+}
+
 function App() {
   const [page, setPage] = useState("")
   const handleSetPage = ( currentPage ) => {
@@ -23,6 +33,7 @@ function App() {
   }
   return (
     <>
+    <ScrollToTop />
       <Suspense fallback={
         <div className='loading'>
           <img src={logo} alt="logo" className='loading__logo' />

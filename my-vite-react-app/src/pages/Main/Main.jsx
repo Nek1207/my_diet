@@ -69,7 +69,7 @@ const Main = () => {
           <h2 ref={el => sectionRefs.current[8] = el} className="heading2 c-white">узнайте свой план питания <span className='c-darkgreen'><br />прямо сейчас!</span></h2>
           <img className="main__rightnow__image2" src={leaf2} alt="leaf2" />
         </div>
-        <Button ref={el => sectionRefs.current[9] = el} title="создать аккаунт" styles="default" status="default" specialStyles="create-account"/>
+        <Button ref={el => sectionRefs.current[9] = el} title="рассчитать" styles="default" status="default" specialStyles="create-account"/>
       </section>
       <Footer />
     </>
