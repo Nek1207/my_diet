@@ -970,8 +970,12 @@ section {
   }
 }
 
+.main, .container, .root, body {
+  overflow: hidden !important;
+}
+
 .forbidden {
-  overflow-y: hidden;
+  overflow: hidden !important;
   position: absolute;
   top: 0;
   left: 0;

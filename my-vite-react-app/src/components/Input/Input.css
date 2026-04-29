@@ -1014,12 +1014,28 @@ section {
   font-size: 1.1rem;
   z-index: 1;
 }
+@media (max-width: 600px) {
+  .input__icon {
+    max-width: 35px;
+    width: 35px;
+    min-width: 35px;
+  }
+}
 .input__icon-image svg, .input__icon-image {
   max-width: 35px;
   width: 35px;
   min-width: 35px;
   min-height: 35px;
   height: auto;
+}
+@media (max-width: 600px) {
+  .input__icon-image svg, .input__icon-image {
+    max-width: 20px;
+    width: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    height: auto;
+  }
 }
 .input__field {
   cursor: pointer;
@@ -1043,6 +1059,13 @@ section {
   font-weight: 700;
   font-size: clamp(8px, 3vw, 20px);
   transition: all 0.25s;
+}
+@media (max-width: 600px) {
+  .input__field {
+    max-width: 80%;
+    width: 80%;
+    min-width: 80%;
+  }
 }
 .input__field::placeholder {
   font-family: "Montserrat", sans-serif;
@@ -1088,11 +1111,12 @@ section {
   color: #247D4E;
 }
 
-/* Состояние error */
-/* Состояние success */
-/* Иконки статуса (справа) */
-/* Для пароля с статусом default добавляем правый отступ */
 .input:focus-within .input__icon,
 .input:focus-within .input__password {
   color: #247D4E;
-}/*# sourceMappingURL=Input.css.map */
+}
+
+/* Состояние error */
+/* Состояние success */
+/* Иконки статуса (справа) */
+/* Для пароля с статусом default добавляем правый отступ *//*# sourceMappingURL=Input.css.map */

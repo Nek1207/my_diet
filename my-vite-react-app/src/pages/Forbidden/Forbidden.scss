@@ -1,9 +1,8 @@
 @use '../../styles/variables' as vars;
 @use '../../styles/mixins' as mix;
 @use '../../styles/index' as *;
-
 .forbidden {
-  overflow-y: hidden;
+  overflow: hidden !important;
   position: absolute;
   top: 0;
   left: 0;
@@ -11,20 +10,16 @@
   @include mix.flex(row, space-between, start, nowrap, 0rem);
   @include mix.width(100%);
   @include mix.height(100%);
-
   @media (max-width: 1380px) {
     @include mix.flex(column, start, start, nowrap, 0rem);
   }
-
   &__logo {
     background: vars.$white;
     @include mix.height(100vh);
     max-height: 100vh;
-
     @media (max-width: 1450px) {
       display: none;
     }
-
     &-background {
       @include mix.width(100%);
       @include mix.height(100vh);
@@ -45,14 +40,12 @@
     padding-left: 4rem;
     z-index: 10;
     @include mix.flex(column, center, center, nowrap, 1rem);
-
     @media (max-width: 1000px) {
       @include mix.width(80%);
       margin-top: 5vh;
       @include mix.flex(column, start, center, nowrap, 1rem);
     }
     &-inner {
-      // margin-top: 5rem;
       @include mix.width(100%);
       @include mix.flex(column, start, start, nowrap, 0rem);
     }
@@ -68,7 +61,6 @@
       padding: 0 auto;
       border-radius: vars.$br1;
       text-align: center;
-
       @media (max-width: 1200px) {
         line-height: 1;
         @include mix.width(300px);
@@ -100,10 +92,7 @@
       z-index: 200000 !important;
     }
   }
-
-  
 }
-
 .branch__forbidden {
   @include mix.width(40% !important);
   transform: translateX(150%) !important;
@@ -112,7 +101,6 @@
   top: 58vh !important;
   right: 0 !important;
   z-index: 1000 !important;
-
   @media (max-width: 1450px) {
     left: 0;
     rotate: 180deg;
@@ -135,7 +123,6 @@
     @include mix.width(90%);
   }
 }
-
 @media (max-width: 900px) {
   .mt4 {
     margin-top: 2.5rem;
@@ -147,7 +134,6 @@
     font-size: .75rem;
   }
 }
-
 .desc3 {
   @include mix.width(90%);
 }

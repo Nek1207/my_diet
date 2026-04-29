@@ -1,7 +1,6 @@
 @use '../../styles/variables' as vars;
 @use '../../styles/mixins' as mix;
 @use '../../styles/index' as *;
-
 .calculator {
   position: relative;
   z-index: 1000;
@@ -11,23 +10,18 @@
   @include mix.width(100%);
   @include mix.height(80vh);
   padding: 0;
-
   &__form {
     margin-top: 5vh;
     @include mix.width(55%);
     @include mix.height(40vh);
-
     @media (max-width: 1200px) {
       @include mix.width(60%);
     }
     @media (max-width: 800px) {
       @include mix.width(85%);
     }
-
-
   }
 }
-
 .branch__calculator, .branch__calculator2 {
   display: block;
   position: absolute;
@@ -37,7 +31,6 @@
   @media (max-width: 900px) {
     display: none;
   }
-
 }
 .branch__calculator {
   left: 1.5vw;
@@ -48,5 +41,5 @@
 .branch__image-calculator {
   display: block;
   @include mix.width(17.5vh);
-
 }
+

@@ -1,26 +1,19 @@
 import React, { useState, useEffect } from 'react'
-
 import { calculateCcal, calculateBMI, getBMICategory, calculateWater, calculateMacros } from '../../calculations'
-
 import "./../CalculatorResults/CalculatorResults.scss"
 import "./../Main/Main.scss"
-
 import Button from "../../components/Button/Button"
 import Input from '../../components/Input/InputOld'
-
 // import { useScrollAnimation } from '../../smoothscrolling-alt'
 import { useScrollAnimationL } from '../../smoothscrolling-l'
-
 import rounds from "./../../assets/content/cont_sectors.png"
 import branch from "./../../assets/content/branch_calculator.svg"
 import branch2 from "./../../assets/content/branch_calculator2.svg"
 import branches from "./../../assets/content/cont_branches.svg"
-
 import leaf1 from "./../../assets/content/leaf_darkgreen.svg"
 import leaf2 from "./../../assets/content/leaf_darkgreen2.svg"
 import leaf3 from "./../../assets/content/cont_headerleaf.svg"
 import leaf4 from "./../../assets/content/cont_headerleaf2.svg"
-
 import time from "./../../assets/content/cont_time.svg"
 import more from "./../../assets/content/cont_more.svg"
 import economy from "./../../assets/content/cont_ecomony.svg"
@@ -28,110 +21,39 @@ import waves from "./../../assets/content/cont_waves.svg"
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import { NavLink } from 'react-router-dom'
-
-
-
 const Calculator = () => {
   const branchesRefs = useScrollAnimationL(0.5)
-
   const [formData, setFormData] = useState(null)
   const [calories, setCalories] = useState(null)
   const [bmi, setBmi] = useState(null)
   const [bmiCategory, setBmiCategory] = useState(null)
   const [water, setWater] = useState(null)
   const [macros, setMacros] = useState(null)
-
-  useEffect(() => {
-  console.log('Запуск Observer');
-  
-  const elements = document.querySelectorAll('.animate-to-scroll');
-  console.log('Элементов для наблюдения:', elements.length);
-  
-  if (elements.length === 0) {
-    console.warn('Нет элементов с классом .animate-to-scroll!');
-    return;
-  }
-  
-  // Создаем observer с минимальным порогом
-  const observer = new IntersectionObserver((entries) => {
-    console.log('Observer сработал, количество записей:', entries.length);
-    
-    entries.forEach(entry => {
-      console.log('Элемент:', entry.target);
-      console.log('  - isIntersecting:', entry.isIntersecting);
-      console.log('  - intersectionRatio:', entry.intersectionRatio);
-      
-      if (entry.isIntersecting) {
-        console.log('ДОБАВЛЯЕМ visible!');
-        entry.target.classList.add('visible');
-        console.log('  - Новые классы:', entry.target.className);
-      }
-    });
-  }, { 
-    threshold: 0.01,  // Минимальный порог - 1% видимости
-    rootMargin: '50px'  // Срабатывает за 50px до появления
-  });
-  
-  // Начинаем наблюдение
-  elements.forEach((el, i) => {
-    console.log(`Начинаем наблюдение за элементом ${i}`);
-    observer.observe(el);
-  });
-  
-  // Проверяем видимость через 100мс после загрузки
-  setTimeout(() => {
-    console.log('=== Принудительная проверка видимости ===');
-    elements.forEach((el, i) => {
-      const rect = el.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-      console.log(`Элемент ${i}: top=${rect.top}, bottom=${rect.bottom}, видим=${isVisible}`);
-      
-      if (isVisible && !el.classList.contains('visible')) {
-        console.log(`Принудительно показываем элемент ${i}`);
-        el.classList.add('visible');
-      }
-    });
-  }, 500);
-  
-  return () => {
-    console.log('Очистка observer');
-    observer.disconnect();
-  };
-}, []);
-
   useEffect(() => {
     const savedData = localStorage.getItem('CalculatorFormData')
     if (savedData) {
       const parsedData = JSON.parse(savedData)
       setFormData(parsedData)
-      
-      // Вычисляем все показатели
       const ccal = calculateCcal(parsedData)
       const bmiValue = calculateBMI(parsedData)
       const waterAmount = calculateWater(parsedData)
-      
       setCalories(ccal)
       setBmi(bmiValue)
       setWater(waterAmount)
-      
       if (bmiValue) {
         setBmiCategory(getBMICategory(bmiValue))
       }
-      
       if (ccal) {
         setMacros(calculateMacros(ccal))
       }
     }
   }, [])
-
   if (!formData) {
     return <div className="loading">загрузка данных...</div>
   }
-
   return (
     <>
-      <Header />
-      
+      <Header />   
       <div className="branch__calculator"><img className="branch__image-calculator" src={branch} alt="branch"/></div>
       <div className="branch__calculator2"><img className="branch__image-calculator" src={branch2} alt="branch"/></div>
       <section className="calculator">  
@@ -146,9 +68,7 @@ const Calculator = () => {
         <div className="results__bmi">
           <div className="results__bmi-inner">
             <h3 className='desc2 c-black'>индекс массы тела (ИМТ):</h3>
-            <p className="bmi-value desc2" style={{ color: bmiCategory?.color }}>
-              {bmi}
-            </p>
+            <p className="bmi-value desc2" style={{ color: bmiCategory?.color }}>{bmi}</p>
             <p className="bmi-category desc2" style={{ color: bmiCategory?.color }}>({bmiCategory?.category})</p>
           </div>
         </div>
@@ -227,15 +147,14 @@ const Calculator = () => {
               <img className="calculator__rules-item__image2" src={leaf3} alt="leaf3" />
             </div>
             <h3 className="calculator__rules-item__title">правило 80/20</h3>
-            <p className="calculator__rules-item__description">80% времени кушайте по КБЖУ, а остальными 20% позволяйте себе что-нибудь вкусненькое и не совсем полезное – Вы не машина!</p>
+            <p className="calculator__rules-item__description">80% времени питайтесь по КБЖУ, а остальными 20% позволяйте себе что-нибудь вкусненькое и не совсем полезное – Вы не машина!</p>
           </div>
         </div>
       </section>
-
       <img className="waves" src={waves} alt="waves" />
       <Footer />
     </>
   )
 }
-
 export default Calculator
+

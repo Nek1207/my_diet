@@ -1,23 +1,10 @@
 import React, { useState, forwardRef, useRef } from 'react'
 import PropTypes from 'prop-types'
-import {
-  FaUser,
-  FaLock,
-  FaEnvelope,
-  FaTransgender,
-  FaCalendarAlt,
-  FaWeight,
-  FaBalanceScale,
-  FaBolt,
-  FaBullseye,
-  FaEye,
-  FaEyeSlash,
-  FaCheckCircle,
-  FaExclamationCircle,
-} from 'react-icons/fa'
-
+import { FaUser, FaLock, FaEnvelope, FaTransgender,
+  FaCalendarAlt, FaWeight, FaBalanceScale, FaBolt,
+  FaBullseye, FaEye, FaEyeSlash, FaCheckCircle,
+  FaExclamationCircle } from 'react-icons/fa'
 import "./../Input/Input.scss"
-
 const iconMap = {
   login: <FaUser />,
   password: <FaLock />,
@@ -29,30 +16,17 @@ const iconMap = {
   energy: <FaBolt />,
   target: <FaBullseye />,
 }
-
 const Input = forwardRef(({
-    type = 'text',
-    id,
-    name,
-    value,
-    placeholder,
-    className = '',
-    wrapperClassName = '',
-    isRequired = false,
-    isDisabled = false,
-    leftIcon,
-    onChange,
-    status = 'default', // 'default' | 'error' | 'success'
-    ...rest
+    type = 'text', id, name, value, placeholder,
+    className = '', wrapperClassName = '',
+    isRequired = false, isDisabled = false,
+    leftIcon, onChange, status = 'default', ...rest
 }, ref) => {
-
     const [showPassword, setShowPassword] = useState(false)
     const actualType = type === 'password' && showPassword ? 'text' : type
-
     const togglePasswordVisibility = () => {
       setShowPassword((prev) => !prev);
     }
-
     const renderLeftIcon = () => {
         if (!leftIcon) return null
         if (typeof leftIcon === 'string' && iconMap[leftIcon]) {
@@ -60,38 +34,26 @@ const Input = forwardRef(({
         }
         return leftIcon
     }
-
     const leftIconElement = renderLeftIcon()
-
     const wrapperClasses = [
       'input',
       status !== 'default' && `input--${status}`,
       wrapperClassName,
     ].filter(Boolean).join(' ')
-
     const inputClasses = [
       'input__field',
       status !== 'default' && `input__field--${status}`,
       className,
     ].filter(Boolean).join(' ')
-
     return (
         <div className={wrapperClasses}>
-            {leftIconElement && ( <div className="input__icon"><span className="input__icon-image">{leftIconElement}</span></div> )}
+            {leftIconElement && ( <div className="input__icon">
+              <span className="input__icon-image">{leftIconElement}</span></div> )}
             <input
-                ref={ref}
-                id={id}
-                name={name}
-                type={actualType}
-                value={value}
-                placeholder={placeholder}
-                className={inputClasses}
-                required={isRequired}
-                disabled={isDisabled}
-                onChange={onChange}
+                ref={ref} id={id} name={name} type={actualType} value={value} placeholder={placeholder}
+                className={inputClasses} required={isRequired} disabled={isDisabled} onChange={onChange}
                 {...rest}
             />
-
             {type === 'password' && (
             <button
                 type="button"
@@ -105,11 +67,8 @@ const Input = forwardRef(({
             )}
         </div>
     )
-    
 })
-
 Input.displayName = 'Input'
-
 Input.propTypes = {
   type: PropTypes.string,
   id: PropTypes.string,
@@ -124,5 +83,4 @@ Input.propTypes = {
   onChange: PropTypes.func,
   status: PropTypes.oneOf(['default', 'error', 'success']),
 }
-
 export default Input

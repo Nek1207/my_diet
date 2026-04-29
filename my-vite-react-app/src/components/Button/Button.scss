@@ -1,87 +1,80 @@
 @use '../../styles/variables' as vars;
 @use '../../styles/mixins' as mix;
 @use '../../styles/index' as *;
-
 .button {
+  @include mix.flex(row, center, center, nowrap, .5rem);
   cursor: pointer;
   color: vars.$white;
   background: vars.$carrot;
-  border: 3px solid vars.$carrot;
+  border: 4px solid vars.$carrot;
   transition: all .25s;
-
+  & svg {
+    @include mix.width(30px);
+    @include mix.height(30px);
+  }
   &:hover {
     cursor: pointer;
-    background: none;
-    border: 3px solid vars.$carrot;
+    background: vars.$white;
+    border: 4px solid vars.$carrot;
     color: vars.$carrot;
     transition: all .25s;
   }
   &:disabled {
     background: vars.$darkcarrot;
-    border: 3px solid vars.$darkcarrot;
+    border: 4px solid vars.$darkcarrot;
     color: vars.$lightgray;
     cursor: pointer;
   }
 }
-
 .button--default {
   cursor: pointer;
   color: vars.$white;
   background: vars.$carrot;
-  border: 3px solid vars.$carrot;
+  border: 4px solid vars.$carrot;
   transition: all .25s;
 }
 .button--disabled {
   cursor: not-allowed;
   color: vars.$lightgray;
   background: vars.$darkcarrot;
-  border: 3px solid vars.$darkcarrot;
+  border: 4px solid vars.$darkcarrot;
   transition: all .25s;
-
   &:hover {
     cursor: not-allowed;
     color: vars.$lightgray;
     background: vars.$darkcarrot;
-    border: 3px solid vars.$darkcarrot;
+    border: 4px solid vars.$darkcarrot;
     transition: all .25s;
   }
-
 }
-
 .button--error {
   cursor: pointer;
   color: vars.$white;
   background: vars.$danger;
-  border: 3px solid vars.$danger;
+  border: 4px solid vars.$danger;
   transition: all .25s;
-
   &:hover {
     cursor: pointer;
     color: vars.$danger;
     background: none;
-    border: 3px solid vars.$danger;
+    border: 4px solid vars.$danger;
     transition: all .25s;
   }
-
 }
-
 .button--success {
   cursor: pointer;
   color: vars.$white;
   background: vars.$green;
-  border: 3px solid vars.$green;
+  border: 4px solid vars.$green;
   transition: all .25s;
-
   &:hover {
     cursor: pointer;
     color: vars.$green;
     background: none;
-    border: 3px solid vars.$green;
+    border: 4px solid vars.$green;
     transition: all .25s;
   }
-
 }
-
 .button--header {
   @include mix.width(150px);
   @include mix.height(35px);
@@ -92,7 +85,6 @@
   border-radius: vars.$br4;
   border: 3px solid vars.$white;
   transition: all .25s;
-
   &:hover {
     cursor: pointer;
     color: vars.$white;
@@ -100,9 +92,7 @@
     border: 3px solid vars.$white;
     transition: all .25s;
   }
-
 }
-
 .button--backtomain {
   @include mix.width(300px);
   @include mix.height(75px);
@@ -113,7 +103,6 @@
   border-radius: vars.$br4;
   border: 5px solid vars.$carrot;
   transition: all .25s;
-
   &:hover {
     cursor: pointer;
     color: vars.$carrot;
@@ -135,6 +124,4 @@
     @include mix.height(35px);
     font-size: vars.$desc1;
   }
-
-  
 }

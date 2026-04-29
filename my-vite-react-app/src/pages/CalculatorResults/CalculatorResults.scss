@@ -1,7 +1,6 @@
 @use '../../styles/variables' as vars;
 @use '../../styles/mixins' as mix;
 @use '../../styles/index' as *;
-
 .calculator {
   position: relative;
   z-index: 1000;
@@ -11,11 +10,9 @@
   @include mix.width(100%);
   @include mix.height(80vh);
   padding: 0;
-
   &__results {
     @include mix.flex(row, center, center, nowrap, 2rem);
     line-height: 1;
-
     @media (max-width: 800px) {
       gap: .5rem;
     }
@@ -23,13 +20,11 @@
   &__saveresults {
     margin-top: 5vh;
     @include mix.flex(row, center, center, nowrap, 2rem);
-
     @media (max-width: 850px) {
       gap: .75rem;
     }
     &__texts {
       @include mix.flex(column, center, end, nowrap, 0rem);
-
       .subheading {
         line-height: 1.25;
         font-size: vars.$desc2;
@@ -47,21 +42,18 @@
     color: vars.$white;
     border-radius: vars.$br2;
     padding: 2rem;
-
     @media (max-width: 900px) {
     @include mix.width(80%);
     }
     @media (max-width: 850px) {
       padding: 1rem;
     }
-
     &__title {
       margin-top: 10vh;
       @include mix.width(60%);
       color: vars.$darkgreen;
       text-align: left;
       font-size: vars.$desc2;
-
       @media (max-width: 900px) {
         @include mix.width(80%);
       }
@@ -84,7 +76,6 @@
     &__list {
       @include mix.width(100%);
       @include mix.flex(column, center, start, nowrap, .35rem);
-
       &-item {
         color: vars.$lightgray;
         text-align: left;
@@ -94,7 +85,6 @@
         margin-left: 2rem;
         list-style-type: disc;
       }
-      
     }
     &__formulaname {
       text-align: right;
@@ -104,25 +94,21 @@
       line-height: 1;
     }
   }
-
   &__rules {
     margin-top: 5vh;
     @include mix.flex(row, center, start, nowrap, 1rem);
     @include mix.width(100%);
     @include mix.height(20vh);
-
     @media (max-width: 600px) {
       gap: 1rem;
     }
     @media (max-width: 450px) {
       margin-top: 1vh;
     }
-
     &-item {
       @include mix.flex(column, start, center, nowrap, 1rem);
       @include mix.width(32%);
       @include mix.height(20vh);
-
       &__number {
         position: relative;
         top: 0;
@@ -131,7 +117,6 @@
         text-align: center;
         @include mix.width(35%);
         padding: 1rem;
-        // border-radius: vars.$br2;
         border-top-right-radius: 50%;
         border-bottom-left-radius: 50%;
         line-height: 1;
@@ -139,12 +124,10 @@
         font-size: vars.$bignumbers;
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
-
       }
       &__image, &__image2 {
         position: absolute;
         bottom: -1rem;
-
         @media (max-width: 850px) {
           bottom: -.5rem;
         }
@@ -153,7 +136,6 @@
         left: -2.5rem;
         animation: leafAnimation 2s 1s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
         @include mix.width(65px);
-
         @media (max-width: 850px) {
           left: -1rem;
           @include mix.width(35px);
@@ -163,7 +145,6 @@
         right: -2.5rem;
         animation: leafAnimation 2s 2s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
         @include mix.width(65px);
-
         @media (max-width: 850px) {
           right: -1rem;
           @include mix.width(35px);
@@ -177,7 +158,6 @@
         color: vars.$darkgreen;
         font-size: vars.$subheading;
         line-height: 1;
-
         @media (max-width: 800px) {
           @include mix.height(calc(vars.$subheading + 40px));
         }
@@ -198,15 +178,13 @@
     }
   }
 }
-
-
 .results {
   &__bmi {
     margin-top: 5vh;
   }
   &__bmi, &__water {
     &-inner {
-      @include mix.flex(row, start, start, nowrap, 1rem);
+      @include mix.flex(row, start, start, nowrap, .5rem);
     }
     @include mix.width(60%);
     @include mix.flex(column, start, start, nowrap, .5rem);
@@ -218,7 +196,6 @@
     }
   }
 }
-
 .macros {
   @include mix.width(100%);
   @include mix.flex(row, space-between, center, nowrap, 0.5rem);
@@ -226,7 +203,6 @@
     @include mix.flex(row, start, start, nowrap, 1rem);
   }
 }
-
 .branch__calculator, .branch__calculator2 {
   display: block;
   position: absolute;
@@ -236,7 +212,6 @@
   @media (max-width: 900px) {
     display: none;
   }
-
 }
 .branch__calculator {
   left: 1.5vw;
@@ -247,21 +222,17 @@
 .branch__image-calculator {
   display: block;
   @include mix.width(17.5vh);
-
 }
-
 .move-to-account {
   @include mix.width(400px);
   @include mix.height(75px);
   font-size: vars.$desc25;
 }
-
 @media (max-width: 1500px) {
   .move-to-account {
     font-size: vars.$desc2;
   }
 }
-
 @media (max-width: 1200px) {
   .move-to-account {
     @include mix.width(300px);
@@ -269,7 +240,6 @@
     font-size: vars.$desc25;
   }
 }
-
 @media (max-width: 950px) {
   .move-to-account {
     @include mix.width(250px);
@@ -277,7 +247,6 @@
     font-size: vars.$desc2;
   }
 }
-
 @media (max-width: 650px) {
   .move-to-account {
     border-radius: vars.$br4;
@@ -286,7 +255,6 @@
     font-size: vars.$desc2;
   }
 }
-
 @media (max-width: 450px) {
   .move-to-account {
     @include mix.width(125px);
@@ -294,22 +262,17 @@
     font-size: vars.$desc25;
   }
 }
-
-// Forms.scss - минимальная версия без конфликтов
 .animate-to-scroll {
   transition: all 0.6s ease-out;
 }
-
 .animate-to-scroll:not(.visible) {
   opacity: 0;
   transform: translateY(30px);
 }
-
 .animate-to-scroll.visible {
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
-
 @media (max-width: 900px) {
   .desc2 {
     font-size: vars.$desc1;

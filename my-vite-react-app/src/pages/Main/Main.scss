@@ -1,7 +1,6 @@
 @use '../../styles/variables' as vars;
 @use '../../styles/mixins' as mix;
 @use '../../styles/index' as *;
-
 .my-button {
   background-color: green;
   color: white;
@@ -9,13 +8,11 @@
   border: none;
   border-radius: 8px;
   font-size: 18px;
-  cursor: pointer;
-  
+  cursor: pointer; 
   &:hover {
     background-color: darkgreen;
   }
 }
-
 .main {
   position: relative;
   z-index: 1000;
@@ -24,13 +21,11 @@
   @include mix.width(100%);
   @include mix.height(100%);
   padding: 0;
-
   &__eatsmart {
     margin-top: 15vh;
     @include mix.flex(row, center, center, nowrap, 1rem);
     @include mix.height(20vh);
     padding: 2rem;
-
     &__image {
       @include mix.width(30%);
     }
@@ -50,12 +45,11 @@
       }
     }
   }
-
-
   &__forwhat {
     @include mix.flex(column, start, center, nowrap, 5rem);
-      
-
+    @media (max-width: 600px) {
+      gap: 1rem;
+    }
     &__items {
       @include mix.width(100%);
       @include mix.flex(column, center, center, nowrap, 1rem);
@@ -69,17 +63,16 @@
     &__item {
       @include mix.width(100%);
       @include mix.height(350px);
-      @include mix.flex(row, start, start, nowrap, 1rem);
+      @include mix.flex(row, center, center, nowrap, 1rem);
       @media (max-width: 1200px) {
-        @include mix.height(220px);
+        @include mix.height(200px);
       }
       @media (max-width: 600px) {
-        @include mix.height(170px);
+        @include mix.height(190px);
       }
       @media (max-width: 480px) {
-        @include mix.height(220px);
-      }
-    
+        @include mix.height(180px);
+      } 
       &-image {
         @include mix.width(200px);
         @media (max-width: 1200px) {
@@ -96,23 +89,19 @@
       }
     }
   }
-
   &__threesteps {
     @include mix.width(85%);
     @include mix.flex(column, start, center, nowrap, 2rem);
-
     &__image {
       @include mix.width(90%);
     }
   }
-
   &__rightnow {
     margin-top: -1.5rem;
     @include mix.width(100%);
     @include mix.height(200px);
     @include mix.flex(column, center, center, nowrap, 3rem);
     background: vars.$green;
-
     &__image {
       animation: leafAnimation 2s 1s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
       @include mix.width(75px);
@@ -121,18 +110,15 @@
       animation: leafAnimation 2s 2s infinite forwards cubic-bezier(0.75, 0.26, 0.25, 0.75);
       @include mix.width(75px);
     }
-
     &-inner {
       @include mix.flex(row, center, center, nowrap, 2rem);
     }
-
     @media (max-width: 900px) {
       &__image, &__image2 {
         @include mix.width(50px);
         top: 6vh;
       }
     }
-
     @media (max-width: 500px) {
       &__image, &__image2 {
         @include mix.width(35px);
@@ -141,7 +127,6 @@
       &__image { left: 5vw; }
       &__image2 { right: 5vw; }
     }
-
     @media (max-width: 400px) {
       &__image, &__image2 {
         @include mix.width(25px);
@@ -150,3 +135,4 @@
     }
   }
 }
+

@@ -971,22 +971,35 @@ section {
 }
 
 .button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
   cursor: pointer;
   color: #FAFAFA;
   background: #E76F51;
-  border: 3px solid #E76F51;
+  border: 4px solid #E76F51;
   transition: all 0.25s;
+}
+.button svg {
+  max-width: 30px;
+  width: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  height: auto;
 }
 .button:hover {
   cursor: pointer;
-  background: none;
-  border: 3px solid #E76F51;
+  background: #FAFAFA;
+  border: 4px solid #E76F51;
   color: #E76F51;
   transition: all 0.25s;
 }
 .button:disabled {
   background: #B85018;
-  border: 3px solid #B85018;
+  border: 4px solid #B85018;
   color: #DFDFDF;
   cursor: pointer;
 }
@@ -995,7 +1008,7 @@ section {
   cursor: pointer;
   color: #FAFAFA;
   background: #E76F51;
-  border: 3px solid #E76F51;
+  border: 4px solid #E76F51;
   transition: all 0.25s;
 }
 
@@ -1003,14 +1016,14 @@ section {
   cursor: not-allowed;
   color: #DFDFDF;
   background: #B85018;
-  border: 3px solid #B85018;
+  border: 4px solid #B85018;
   transition: all 0.25s;
 }
 .button--disabled:hover {
   cursor: not-allowed;
   color: #DFDFDF;
   background: #B85018;
-  border: 3px solid #B85018;
+  border: 4px solid #B85018;
   transition: all 0.25s;
 }
 
@@ -1018,14 +1031,14 @@ section {
   cursor: pointer;
   color: #FAFAFA;
   background: #FF595E;
-  border: 3px solid #FF595E;
+  border: 4px solid #FF595E;
   transition: all 0.25s;
 }
 .button--error:hover {
   cursor: pointer;
   color: #FF595E;
   background: none;
-  border: 3px solid #FF595E;
+  border: 4px solid #FF595E;
   transition: all 0.25s;
 }
 
@@ -1033,14 +1046,14 @@ section {
   cursor: pointer;
   color: #FAFAFA;
   background: #3BB273;
-  border: 3px solid #3BB273;
+  border: 4px solid #3BB273;
   transition: all 0.25s;
 }
 .button--success:hover {
   cursor: pointer;
   color: #3BB273;
   background: none;
-  border: 3px solid #3BB273;
+  border: 4px solid #3BB273;
   transition: all 0.25s;
 }
 

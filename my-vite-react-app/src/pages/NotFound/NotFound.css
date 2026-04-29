@@ -971,7 +971,7 @@ section {
 }
 
 .notfound {
-  overflow-y: hidden;
+  overflow: hidden !important;
   position: relative;
   top: 0;
   left: 0;
@@ -1160,6 +1160,7 @@ section {
   position: fixed !important;
   z-index: 1 !important;
   top: 55vh !important;
+  z-index: 10000 !important;
   right: 0 !important;
   pointer-events: none !important;
 }
@@ -1251,8 +1252,8 @@ section {
   z-index: 10000 !important;
 }
 
-body {
-  overflow-x: hidden;
+body, .root, .main {
+  overflow: hidden !important;
 }
 
 .branch {

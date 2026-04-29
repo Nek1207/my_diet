@@ -1,7 +1,6 @@
 @use '../../styles/variables' as vars;
 @use '../../styles/mixins' as mix;
 @use '../../styles/index' as *;
-
 .header {
   @include mix.flex(row, space-between, center, nowrap, .75rem);
   @include mix.width(95vw);
@@ -33,40 +32,31 @@
     @include mix.width(25%);
     justify-content: start;
   }
-  
   &__item:last-child {
     @include mix.width(20%);
     justify-content: end;
   }
-
   &__logo {
     @include mix.width(15%);
-
     &-image {
       @include mix.width(100%);
     }
-
   }
   &__titles {
     @include mix.width(70%);
     @include mix.flex(column, center, start, nowrap, 0);
-
     &-title {
-      // @include width(150%);
       text-wrap: none;
       font-size: vars.$header;
       line-height: 1;
       color: vars.$white;
-
     }
     &-subtitle {
-      // @include width(150%);
       text-wrap: none;
       font-size: vars.$header2;
       color: vars.$white;
       font-weight: 700;
       font-family: "Montserrat", sans-serif;
-
     }
   }
   .menu {
@@ -76,22 +66,15 @@
     font-size: vars.$header;
     @include mix.width(100%);
     @include mix.flex(row, space-between, center, nowrap, 1rem);
-
     &-link {
       color: vars.$white;
-
       &--active {
         color: vars.$carrot;
       }
-
       &:hover {
         text-decoration: underline;
         scale: 1.1;
       }
-      // &:active {
-      //   text-decoration: underline;
-      //   color: $lightgreen;
-      // }
     }
   }
   &__account {
@@ -100,18 +83,13 @@
     &-image {
       @include mix.width(100%);
     }
-
   }
   &__signin {
     display: block;
     // @include width(10%);
     color: vars.$darkgreen;
   }
-
-  
 }
-
-
 @media (max-width: 1400px) {
   .header__logo {
     width: 100%;
@@ -136,7 +114,6 @@
     @include mix.width(25vw);
   }
 }
-
 @media (max-width: 1000px) {
   .header {
     justify-content: space-between;
@@ -156,7 +133,6 @@
     color: #247D4E;
   }
 }
-
 @media (max-width: 1250px) {
   .header__leaf, .header__leaf2 {
     @include mix.width(55px);
@@ -180,7 +156,6 @@
     @include mix.width(50px);
   }
 }
-
 @media (max-width: 985px) {
   .header__titles {
     display: flex;
@@ -203,13 +178,11 @@
     @include mix.width(20%);
   }
 }
-
 @media (max-width: 650px) {
   .header__titles {
     display: none;
   }
 }
-
 @media (max-width: 500px) {
   .header__leaf, .header__leaf2 {
     @include mix.width(45px);
@@ -233,9 +206,6 @@
     @include mix.width(60%);
   }
 }
-
-
-
 @media (max-width: 1000px) {
   .menu {
     position: fixed;
@@ -263,19 +233,14 @@
     align-items: center !important;
     min-width: 50px !important;
     width: 50px !important;
-    /* margin-right: 2rem !important; */
   }
-
 }
-
 .menu.active {
-  left: 0%; /* Появление */
+  left: 0%;
 }
-
 .burger {
   display: none;
 }
-
 .line {
   width: 80%;
   height: 5px;
@@ -285,13 +250,11 @@
   margin: 4px;
   transition: 0.3s;
 }
-
-/* Анимация превращения в крестик */
 .burger.open .line:nth-child(1) {
   transform: rotate(45deg) translate(8px, 8px);
 }
 .burger.open .line:nth-child(2) {
-  opacity: 0; /* Средняя линия исчезает */
+  opacity: 0;
 }
 .burger.open .line:nth-child(3) {
   transform: rotate(-45deg) translate(10px, -10px);

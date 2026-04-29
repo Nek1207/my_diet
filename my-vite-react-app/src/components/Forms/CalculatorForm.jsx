@@ -2,17 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import useLocalStorage from "../../hooks/useLocalStorage"
 import Input from '../Input/Input'
-
+import { IoIosSettings } from "react-icons/io"
 import { useScrollAnimation } from '../../smoothscrolling'
 import { useScrollAnimationL } from '../../smoothscrolling-l'
-
 import "./../Forms/Forms.scss"
-
 const CalculatorForm = () => {
   const navigate = useNavigate() 
   const sectionRefs = useScrollAnimation()
-  
-  // Начальные значения формы - ВСЕГДА ПУСТЫЕ
   const initialFormState = {
     gender: 'male',
     age: null,
@@ -21,62 +17,49 @@ const CalculatorForm = () => {
     energy: null,
     target: null
   }
-
-  // Состояние формы (НЕ загружаем из localStorage при монтировании)
   const [form, setForm] = useState(initialFormState)
   const [isSubmitting, setIsSubmitting] = useState(false)
-  
-  // Состояния для валидации
   const [ageSuccess, setAgeSuccess] = useState(false)
   const [weightSuccess, setWeightSuccess] = useState(false)
   const [scaleSuccess, setScaleSuccess] = useState(false)
   const [energySuccess, setEnergySuccess] = useState(false)
   const [targetSuccess, setTargetSuccess] = useState(false)
-
-  // Универсальный обработчик для всех полей
   const handleChange = (e) => {
   const { name, value, type } = e.target;
-  
-  if (type === 'radio') {
-    setForm(prev => ({ ...prev, [name]: value }));
-  } else {
-    setForm(prev => ({ ...prev, [name]: value }));
-  }
-  
-  // Валидация при изменении (если поле уже было touched)
-  if (touched[name]) {
-    let validationResult;
-    switch(name) {
-      case 'age':
-        validationResult = validateAge(value);
-        setAgeSuccess(validationResult.isValid && value.length > 0);
-        break;
-      case 'weight':
-        validationResult = validateWeight(value);
-        setWeightSuccess(validationResult.isValid && value.length > 0);
-        break;
-      case 'scale':
-        validationResult = validateScale(value);
-        setScaleSuccess(validationResult.isValid && value.length > 0);
-        break;
-      case 'energy':
-        validationResult = validateEnergy(value);
-        setEnergySuccess(validationResult.isValid && value.length > 0);
-        break;
-      case 'target':
-        validationResult = validateTarget(value);
-        setTargetSuccess(validationResult.isValid && value.length > 0);
-        break;
-      default:
-        return;
+    if (type === 'radio') {
+      setForm(prev => ({ ...prev, [name]: value }));
+    } else {
+      setForm(prev => ({ ...prev, [name]: value }));
     }
-    
-    setErrors(prev => ({ ...prev, [name]: validationResult.message }));
-  }
+    if (touched[name]) {
+      let validationResult;
+      switch(name) {
+        case 'age':
+          validationResult = validateAge(value);
+          setAgeSuccess(validationResult.isValid && value.length > 0);
+          break;
+        case 'weight':
+          validationResult = validateWeight(value);
+          setWeightSuccess(validationResult.isValid && value.length > 0);
+          break;
+        case 'scale':
+          validationResult = validateScale(value);
+          setScaleSuccess(validationResult.isValid && value.length > 0);
+          break;
+        case 'energy':
+          validationResult = validateEnergy(value);
+          setEnergySuccess(validationResult.isValid && value.length > 0);
+          break;
+        case 'target':
+          validationResult = validateTarget(value);
+          setTargetSuccess(validationResult.isValid && value.length > 0);
+          break;
+        default:
+          return;
+      }
+      setErrors(prev => ({ ...prev, [name]: validationResult.message }));
+    }
 }
-  // Добавьте эти функции валидации в компонент CalculatorForm
-
-// Функции валидации
 const validateAge = (value) => {
   if (!value) return { isValid: false, message: 'возраст обязателен' }
   const numValue = Number(value)
@@ -85,7 +68,6 @@ const validateAge = (value) => {
   if (numValue > 100) return { isValid: false, message: 'максимальный возраст - 100 лет' }
   return { isValid: true, message: '' }
 }
-
 const validateWeight = (value) => {
   if (!value) return { isValid: false, message: 'вес обязателен' }
   const numValue = Number(value)
@@ -94,7 +76,6 @@ const validateWeight = (value) => {
   if (numValue > 300) return { isValid: false, message: 'вес не может быть более 300 кг' }
   return { isValid: true, message: '' }
 }
-
 const validateScale = (value) => {
   if (!value) return { isValid: false, message: 'рост обязателен' }
   const numValue = Number(value)
@@ -103,7 +84,6 @@ const validateScale = (value) => {
   if (numValue > 250) return { isValid: false, message: 'рост не может быть более 250 см' }
   return { isValid: true, message: '' }
 }
-
 const validateEnergy = (value) => {
   if (!value) return { isValid: false, message: 'уровень активности обязателен' }
   const numValue = Number(value)
@@ -111,7 +91,6 @@ const validateEnergy = (value) => {
   if (![1, 2, 3].includes(numValue)) return { isValid: false, message: 'введите цифру 1, 2 или 3' }
   return { isValid: true, message: '' }
 }
-
 const validateTarget = (value) => {
   if (!value) return { isValid: false, message: 'цель обязательна' }
   const numValue = Number(value)
@@ -119,8 +98,6 @@ const validateTarget = (value) => {
   if (![1, 2, 3].includes(numValue)) return { isValid: false, message: 'введите 1, 2 или 3' }
   return { isValid: true, message: '' }
 }
-
-// Добавьте состояния для ошибок после useState
 const [errors, setErrors] = useState({
   age: '',
   weight: '',
@@ -128,7 +105,6 @@ const [errors, setErrors] = useState({
   energy: '',
   target: ''
 })
-
 const [touched, setTouched] = useState({
   age: false,
   weight: false,
@@ -136,16 +112,9 @@ const [touched, setTouched] = useState({
   energy: false,
   target: false
 })
-
-// Обновленный handleChange с валидацией
-
-
-// Обработчик потери фокуса
 const handleBlur = (e) => {
-  const { name, value } = e.target;
-  
+  const { name, value } = e.target;  
   setTouched(prev => ({ ...prev, [name]: true }));
-  
   let validationResult;
   switch(name) {
     case 'age':
@@ -171,15 +140,10 @@ const handleBlur = (e) => {
     default:
       return;
   }
-  
   setErrors(prev => ({ ...prev, [name]: validationResult.message }));
 }
-
-// Обновленный handleSubmit с проверкой всех полей
 const handleSubmit = (e) => {
   e.preventDefault()
-  
-  // Отмечаем все поля как touched
   setTouched({
     age: true,
     weight: true,
@@ -187,15 +151,11 @@ const handleSubmit = (e) => {
     energy: true,
     target: true
   })
-  
-  // Валидация всех полей
   const ageValidation = validateAge(form.age)
   const weightValidation = validateWeight(form.weight)
   const scaleValidation = validateScale(form.scale)
   const energyValidation = validateEnergy(form.energy)
   const targetValidation = validateTarget(form.target)
-  
-  // Устанавливаем ошибки
   setErrors({
     age: ageValidation.message,
     weight: weightValidation.message,
@@ -203,46 +163,32 @@ const handleSubmit = (e) => {
     energy: energyValidation.message,
     target: targetValidation.message
   })
-  
-  // Проверяем валидность
   const isValid = ageValidation.isValid && 
                   weightValidation.isValid && 
                   scaleValidation.isValid && 
                   energyValidation.isValid && 
                   targetValidation.isValid
-  
   if (!isValid) {
     alert('Пожалуйста, исправьте ошибки в форме')
     return
   }
-  
-  // Если все поля валидны, отправляем
   setIsSubmitting(true)
-  
   try {
     console.log('Отправляемые данные:', form)
-    
-    // Сохраняем в localStorage
     localStorage.setItem('CalculatorFormData', JSON.stringify(form))
-    
     const savedData = localStorage.getItem('CalculatorFormData')
     console.log('Сохраненные данные:', JSON.parse(savedData))
-    
     setTimeout(() => {
       console.log('Данные успешно отправлены:', form)
       setIsSubmitting(false)
       navigate('/calculatorresults', { replace: true })
-      // alert('✅ Данные успешно сохранены в localStorage!')
-      
-    }, 100)
-    
+    }, 400)
   } catch (error) {
     console.error('Ошибка при сохранении:', error)
     setIsSubmitting(false)
     alert('Возникла ошибка при сохранении данных')
   }
 }
-
   const handleClearStorage = () => {
     if (window.confirm('Вы уверены, что хотите очистить форму?')) {
       clearForm()
@@ -263,13 +209,11 @@ const handleClearForm = () => {
       energy: '',
       target: ''
     })
-    
     setAgeSuccess(false)
     setWeightSuccess(false)
     setScaleSuccess(false)
     setEnergySuccess(false)
     setTargetSuccess(false)
-    
     setErrors({
       age: '',
       weight: '',
@@ -277,7 +221,6 @@ const handleClearForm = () => {
       energy: '',
       target: ''
     })
-    
     setTouched({
       age: false,
       weight: false,
@@ -285,18 +228,14 @@ const handleClearForm = () => {
       energy: false,
       target: false
     })
-    
     localStorage.removeItem('CalculatorFormData')
   }
 }
-  // Загрузка сохраненных данных при монтировании (если нужно)
   useEffect(() => {
     const savedData = localStorage.getItem('CalculatorFormData')
     if (savedData) {
       const parsedData = JSON.parse(savedData)
       console.log('Загружены сохраненные данные:', parsedData)
-      
-      // Обновить состояния валидации при загрузке
       if (parsedData.age) setAgeSuccess(true)
       if (parsedData.weight) setWeightSuccess(true)
       if (parsedData.scale) setScaleSuccess(true)
@@ -304,7 +243,6 @@ const handleClearForm = () => {
       if (parsedData.target) setTargetSuccess(true)
     }
   }, [])
-
   return (
     <form onSubmit={handleSubmit} className="form">
       <div className="form__items">        
@@ -434,7 +372,7 @@ const handleClearForm = () => {
       
       <div ref={el => sectionRefs.current[6] = el} className="smoothscrolling hidden form__buttons">
         <button className="button form__button" type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'отправка данных...' : 'рассчитать'}
+          <IoIosSettings />{isSubmitting ? 'отправка данных...' : 'рассчитать'}
         </button>
         <button className="button form__button" type="button" onClick={handleClearForm}>
           очистить форму

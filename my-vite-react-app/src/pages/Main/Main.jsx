@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { IoIosSettings } from "react-icons/io"
 import "./../Main/Main.scss"
 import Button from "../../components/Button/Button"
 import Input from '../../components/Input/InputOld'
@@ -70,7 +71,7 @@ const Main = () => {
           <h2 ref={el => sectionRefs.current[8] = el} className="heading2 c-white">узнайте свой план питания <span className='c-darkgreen'><br />прямо сейчас!</span></h2>
           <img className="main__rightnow__image2" src={leaf2} alt="leaf2" />
         </div>
-        <NavLink to="/calculator"><Button ref={el => sectionRefs.current[9] = el} title="рассчитать" styles="default" status="default" specialStyles="create-account"/></NavLink>
+        <NavLink to="/calculator"><Button ref={el => sectionRefs.current[9] = el} title="рассчитать" styles="default" status="calculate" specialStyles="create-account"/></NavLink>
       </section>
       <Footer />
     </>

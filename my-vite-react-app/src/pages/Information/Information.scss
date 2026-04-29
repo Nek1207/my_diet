@@ -1,14 +1,12 @@
 @use '../../styles/variables' as vars;
 @use '../../styles/mixins' as mix;
 @use '../../styles/index' as *;
-
 .information {
   margin-top: 15vh;
   @include mix.width(100%);
   @include mix.flex(column, center, center, nowrap, 1rem);
   @include mix.height(30vh);
   padding: 2rem;
-
   &__item {
     &-first {
       @include mix.flex(row, center, center, nowrap, 4rem);
@@ -19,6 +17,7 @@
         @include mix.flex(column-reverse, center, center, nowrap, 1rem);
       }
       @media (max-width: 700px) {
+        @include mix.width(80%);
         @include mix.flex(row, space-around, center, nowrap, 1rem);
       }
     }
@@ -30,11 +29,11 @@
         @include mix.flex(column-reverse, center, center, nowrap, 1rem);
       }
       @media (max-width: 700px) {
+        @include mix.width(80%);
         @include mix.flex(row-reverse, space-around, center, nowrap, 1rem);
       }
     }
     &-texts {
-
       &-first {
         @include mix.width(60%);
         text-align: end;
@@ -69,7 +68,6 @@
   }
   &__waves {
     margin-top: -35vh;
-
     @media (max-width: 1400px) {
       margin-top: -30vh;
     }
@@ -81,7 +79,7 @@
     }
   }
 }
-
 .infomation__item-image {
   @include mix.width(17.5%);
 }
+
